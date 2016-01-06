@@ -28,12 +28,12 @@ namespace CSDLThu4
             string txtPass = txtPASS.Text;
             EmployeeManagement employee = new EmployeeManagement();
             cn.conn.Open();
-            if (employee.Check(txtID, txtPass) == 1)
+            if (employee.CheckLogin(txtID, txtPass) == 3)
             {
                 frmNhanVien NV = new frmNhanVien();
                 NV.Show();
             }
-            else if (employee.Check(txtID, txtPass) == 0)
+            else if (employee.CheckLogin(txtID, txtPass) == 0)
             {
                 MessageBox.Show("Dữ liệu không hợp lệ");
             }
