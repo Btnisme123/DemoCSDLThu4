@@ -22,7 +22,7 @@ namespace CSDLThu4.UI
 
         private void btnXacNhan_Click(object sender, EventArgs e)
         {
-
+            //aaa
             
             if (dateTimeNgayBD.Value.CompareTo(dateTimeNgayKT.Value)>0)
             {
