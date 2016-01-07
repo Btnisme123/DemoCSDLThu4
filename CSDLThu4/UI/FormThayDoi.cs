@@ -23,6 +23,7 @@ namespace CSDLThu4.UI
         private void btnDong_Click(object sender, EventArgs e)
         {
             this.Close();
+            //aaa
         }
         EmployeeManagement ep = new EmployeeManagement();
         private void dataCongTac_CellContentClick(object sender, DataGridViewCellEventArgs e)
