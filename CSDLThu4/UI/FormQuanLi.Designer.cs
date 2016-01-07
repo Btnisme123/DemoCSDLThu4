@@ -31,9 +31,19 @@
             this.dataCongTac = new System.Windows.Forms.DataGridView();
             this.btnNhacNho = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
-            this.btnBoSung = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.btnCapNhat = new System.Windows.Forms.Button();
+            this.txtTenCT = new System.Windows.Forms.TextBox();
+            this.txtDiaDiem = new System.Windows.Forms.TextBox();
+            this.TenCongTac = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.dateTimeNgayKT = new System.Windows.Forms.DateTimePicker();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.comboLoaiCT = new System.Windows.Forms.ComboBox();
+            this.txtNoiDung = new System.Windows.Forms.TextBox();
+            this.dateTimeNgayBD = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dataCongTac)).BeginInit();
             this.SuspendLayout();
             // 
@@ -46,57 +56,156 @@
             this.dataCongTac.RowTemplate.Height = 24;
             this.dataCongTac.Size = new System.Drawing.Size(947, 182);
             this.dataCongTac.TabIndex = 0;
+            this.dataCongTac.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataCongTac_CellClick);
             // 
             // btnNhacNho
             // 
-            this.btnNhacNho.Location = new System.Drawing.Point(734, 207);
+            this.btnNhacNho.Location = new System.Drawing.Point(624, 378);
             this.btnNhacNho.Name = "btnNhacNho";
-            this.btnNhacNho.Size = new System.Drawing.Size(184, 50);
+            this.btnNhacNho.Size = new System.Drawing.Size(84, 50);
             this.btnNhacNho.TabIndex = 1;
             this.btnNhacNho.Text = "Nhắc nhở";
             this.btnNhacNho.UseVisualStyleBackColor = true;
             // 
             // btnThem
             // 
-            this.btnThem.Location = new System.Drawing.Point(30, 207);
+            this.btnThem.Location = new System.Drawing.Point(115, 378);
             this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(184, 50);
+            this.btnThem.Size = new System.Drawing.Size(84, 50);
             this.btnThem.TabIndex = 2;
             this.btnThem.Text = "Thêm mới";
             this.btnThem.UseVisualStyleBackColor = true;
             this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
-            // btnBoSung
+            // btnCapNhat
             // 
-            this.btnBoSung.Location = new System.Drawing.Point(734, 295);
-            this.btnBoSung.Name = "btnBoSung";
-            this.btnBoSung.Size = new System.Drawing.Size(184, 50);
-            this.btnBoSung.TabIndex = 3;
-            this.btnBoSung.Text = "Bổ sung";
-            this.btnBoSung.UseVisualStyleBackColor = true;
+            this.btnCapNhat.Location = new System.Drawing.Point(373, 378);
+            this.btnCapNhat.Name = "btnCapNhat";
+            this.btnCapNhat.Size = new System.Drawing.Size(85, 50);
+            this.btnCapNhat.TabIndex = 3;
+            this.btnCapNhat.Text = "Cập nhật";
+            this.btnCapNhat.UseVisualStyleBackColor = true;
+            this.btnCapNhat.Click += new System.EventHandler(this.btnCapNhat_Click);
             // 
-            // textBox1
+            // txtTenCT
             // 
-            this.textBox1.Location = new System.Drawing.Point(279, 207);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(162, 22);
-            this.textBox1.TabIndex = 4;
+            this.txtTenCT.Location = new System.Drawing.Point(141, 202);
+            this.txtTenCT.Name = "txtTenCT";
+            this.txtTenCT.Size = new System.Drawing.Size(162, 22);
+            this.txtTenCT.TabIndex = 4;
             // 
-            // textBox2
+            // txtDiaDiem
             // 
-            this.textBox2.Location = new System.Drawing.Point(279, 246);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(162, 22);
-            this.textBox2.TabIndex = 5;
+            this.txtDiaDiem.Location = new System.Drawing.Point(141, 247);
+            this.txtDiaDiem.Name = "txtDiaDiem";
+            this.txtDiaDiem.Size = new System.Drawing.Size(162, 22);
+            this.txtDiaDiem.TabIndex = 5;
+            // 
+            // TenCongTac
+            // 
+            this.TenCongTac.AutoSize = true;
+            this.TenCongTac.Location = new System.Drawing.Point(12, 207);
+            this.TenCongTac.Name = "TenCongTac";
+            this.TenCongTac.Size = new System.Drawing.Size(98, 17);
+            this.TenCongTac.TabIndex = 6;
+            this.TenCongTac.Text = "Tên Công Tác";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 252);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(63, 17);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Địa điểm";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(453, 250);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(95, 17);
+            this.label4.TabIndex = 10;
+            this.label4.Text = "Ngày kết thúc";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(455, 202);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(93, 17);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "Ngày bắt đầu";
+            // 
+            // dateTimeNgayKT
+            // 
+            this.dateTimeNgayKT.Location = new System.Drawing.Point(656, 252);
+            this.dateTimeNgayKT.Name = "dateTimeNgayKT";
+            this.dateTimeNgayKT.Size = new System.Drawing.Size(200, 22);
+            this.dateTimeNgayKT.TabIndex = 11;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(453, 313);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(93, 17);
+            this.label6.TabIndex = 13;
+            this.label6.Text = "Loại công tác";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(12, 316);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(65, 17);
+            this.label5.TabIndex = 12;
+            this.label5.Text = "Nội dung";
+            // 
+            // comboLoaiCT
+            // 
+            this.comboLoaiCT.FormattingEnabled = true;
+            this.comboLoaiCT.Items.AddRange(new object[] {
+            "Công tác mức 1",
+            "Công tác mức 2",
+            "Công tác mức 3"});
+            this.comboLoaiCT.Location = new System.Drawing.Point(656, 313);
+            this.comboLoaiCT.Name = "comboLoaiCT";
+            this.comboLoaiCT.Size = new System.Drawing.Size(200, 24);
+            this.comboLoaiCT.TabIndex = 15;
+            // 
+            // txtNoiDung
+            // 
+            this.txtNoiDung.Location = new System.Drawing.Point(141, 311);
+            this.txtNoiDung.Name = "txtNoiDung";
+            this.txtNoiDung.Size = new System.Drawing.Size(162, 22);
+            this.txtNoiDung.TabIndex = 14;
+            // 
+            // dateTimeNgayBD
+            // 
+            this.dateTimeNgayBD.Location = new System.Drawing.Point(656, 202);
+            this.dateTimeNgayBD.Name = "dateTimeNgayBD";
+            this.dateTimeNgayBD.Size = new System.Drawing.Size(200, 22);
+            this.dateTimeNgayBD.TabIndex = 16;
             // 
             // frmQuanLi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(947, 450);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.btnBoSung);
+            this.Controls.Add(this.dateTimeNgayBD);
+            this.Controls.Add(this.comboLoaiCT);
+            this.Controls.Add(this.txtNoiDung);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.dateTimeNgayKT);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.TenCongTac);
+            this.Controls.Add(this.txtDiaDiem);
+            this.Controls.Add(this.txtTenCT);
+            this.Controls.Add(this.btnCapNhat);
             this.Controls.Add(this.btnThem);
             this.Controls.Add(this.btnNhacNho);
             this.Controls.Add(this.dataCongTac);
@@ -114,8 +223,18 @@
         private System.Windows.Forms.DataGridView dataCongTac;
         private System.Windows.Forms.Button btnNhacNho;
         private System.Windows.Forms.Button btnThem;
-        private System.Windows.Forms.Button btnBoSung;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Button btnCapNhat;
+        private System.Windows.Forms.TextBox txtTenCT;
+        private System.Windows.Forms.TextBox txtDiaDiem;
+        private System.Windows.Forms.Label TenCongTac;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DateTimePicker dateTimeNgayKT;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox comboLoaiCT;
+        private System.Windows.Forms.TextBox txtNoiDung;
+        private System.Windows.Forms.DateTimePicker dateTimeNgayBD;
     }
 }

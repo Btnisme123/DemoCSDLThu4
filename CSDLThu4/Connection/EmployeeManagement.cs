@@ -114,6 +114,7 @@ namespace CSDLThu4.Object
             }
             return dt;
         }
+        //Load du lieu lich
         public DataTable LoadDataLich(String ID)
         {
             //select TenCongTac,NgayBatDau,NgayKetThuc,NoiDung from LichCongTac l ,
@@ -135,6 +136,27 @@ namespace CSDLThu4.Object
             cn.conn.Close();
             return dt;
         }
+        public DataTable LoadDataLich()
+        {
+            //select TenCongTac,NgayBatDau,NgayKetThuc,NoiDung from LichCongTac l ,
+            //NhanVien nv,NhanVien_CongTac nvct
+            //where nv.ID='nam' and nv.MaNhanVien=nvct.MaNhanVien and nvct.MaCongTac=l.MaCongTac
+
+            //string setthuoctinh = @"";
+            DBConnect cn = new DBConnect();
+            cn.conn.Open();
+            DataTable dt = new DataTable();
+            String query = @"select MaCongTac,TenCongTac,NgayBatDau,NgayKetThuc,DiaDiem,NoiDung 
+            from LichCongTac  ";
+            SqlCommand command = new SqlCommand(query, cn.conn);
+           
+            command.ExecuteNonQuery();
+            SqlDataAdapter da = new SqlDataAdapter(command);
+            da.Fill(dt);
+            cn.conn.Close();
+            return dt;
+        }
+        //Them CT
         public bool ThemCongTac(string TenCongTac, DateTime NgayBatDau, DateTime NgayKetThuc, string DiaDiem, string NoiDung, int MaLoaiCongTac)
         {
             try
@@ -161,8 +183,36 @@ namespace CSDLThu4.Object
             }
           
         }
+        //Sua CT
+        public bool SuaCongTac(int id ,string TenCongTac, DateTime NgayBatDau, DateTime NgayKetThuc, string DiaDiem, string NoiDung, int MaLoaiCongTac)
+        {
+            try
+            {
+                DBConnect cn = new DBConnect();
+                cn.conn.Open();
 
+                String query = @"update LichCongTac set TenCongTac=@TenCongTac,NgayBatDau=@NgayBatDau,
+                 NgayKetThuc=@NgayKetThuc,DiaDiem=@DiaDiem,NoiDung=@NoiDung,MaLoaiCongTac=@MaLoaiCongTac where MaCongTac=@id ";
+                SqlCommand command = new SqlCommand(query, cn.conn);
+                command.Parameters.AddWithValue("@TenCongTac", TenCongTac);
+                command.Parameters.AddWithValue("@NgayBatDau", NgayBatDau);
+                command.Parameters.AddWithValue("@NgayKetThuc", NgayKetThuc);
+                command.Parameters.AddWithValue("@DiaDiem", DiaDiem);
+                command.Parameters.AddWithValue("@NoiDung", NoiDung);
+                command.Parameters.AddWithValue("@MaLoaiCongTac", MaLoaiCongTac);
+                command.Parameters.AddWithValue("@id", id);
+                command.ExecuteNonQuery();
+                SqlDataAdapter da = new SqlDataAdapter(command);
 
+                cn.conn.Close();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+
+        }
 
        
     }

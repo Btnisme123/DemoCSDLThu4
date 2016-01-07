@@ -82,6 +82,7 @@ namespace CSDLThu4.UI
                 }
                 if(check==1){
                     EmployeeManagement employ = new EmployeeManagement();
+
                     employ.UpdatedataNV(EmployeeManagement.UserID, getTT[0], getTT[1], getTT[2], getTT[3]);
                     MessageBox.Show("Cập nhật thành công");
                     break;
