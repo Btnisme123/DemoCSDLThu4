@@ -20,6 +20,7 @@ namespace CSDLThu4.UI
             InitializeComponent();
         }
         EmployeeManagement em = new EmployeeManagement();
+        DateTime localDate = DateTime.Now;
         private void frmQuanLi_Load(object sender, EventArgs e)
         {
             //dataCongTac.SelectAll = true;
@@ -68,15 +69,18 @@ namespace CSDLThu4.UI
                     
                     if (em.ThemCongTac(a.TenCongTac, a.Ngaybatdau, a.Ngayketthuc, a.DiaDiem, a.NoiDung, a.LoaiCT))
                     {
-
+                        
                         MessageBox.Show("Thêm  thành công !", "Thông báo");
+                        em.ThayDoi(localDate, "Thêm mới Thông tin", EmployeeManagement.UserID, a.TenCongTac);
                     }
                     else
                     {
                         MessageBox.Show("Thêm không thành công !", "Thông báo");
                     };
                 }
-               
+                dataCongTac.DataSource = em.LoadDataLich();
+                dataCongTac.Update();
+                dataCongTac.Refresh();
               
             }
         }
@@ -100,7 +104,7 @@ namespace CSDLThu4.UI
                 {
 
                     MessageBox.Show("Sửa  thành công !", "Thông báo");
-                   
+                    em.ThayDoi(localDate, "Cập nhật Thông tin", EmployeeManagement.UserID, a.TenCongTac);
                 }
                 else
                 {
@@ -110,6 +114,36 @@ namespace CSDLThu4.UI
             dataCongTac.DataSource = em.LoadDataLich();
                   dataCongTac.Update();
                     dataCongTac.Refresh();
+        }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+           
+                 int id = Convert.ToInt32(dataCongTac.CurrentRow.Cells["MaCongTac"].Value.ToString());
+            LichCongTac a = new LichCongTac(txtTenCT.Text, dateTimeNgayBD.Value, dateTimeNgayKT.Value, txtDiaDiem.Text, txtNoiDung.Text);
+            DialogResult dialogResult = MessageBox.Show("Hãy xác nhận là bạn muốn sửa", "Thông báo", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                if (em.XoaCongTac(id))
+                {
+
+                    MessageBox.Show("Xóa  thành công !", "Thông báo");
+                    em.ThayDoi(localDate, "Xóa Thông tin", EmployeeManagement.UserID, a.TenCongTac);
+                }
+                else
+                {
+                    MessageBox.Show("Xóa không thành công !", "Thông báo");
+                };
+            }
+            dataCongTac.DataSource = em.LoadDataLich();
+                  dataCongTac.Update();
+                    dataCongTac.Refresh();
+        }
+
+        private void btnThayDoi_Click(object sender, EventArgs e)
+        {
+            FormThayDoi fr = new FormThayDoi();
+            fr.Show();
         }
     }
 }

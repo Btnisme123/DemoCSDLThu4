@@ -213,7 +213,68 @@ namespace CSDLThu4.Object
             }
 
         }
+        public bool XoaCongTac(int id)
+        {
+            try
+            {
+                DBConnect cn = new DBConnect();
+                cn.conn.Open();
 
-       
+                String query = @"delete LichCongTac where MaCongTac=@id ";
+                SqlCommand command = new SqlCommand(query, cn.conn);
+              
+                command.Parameters.AddWithValue("@id", id);
+                command.ExecuteNonQuery();
+                SqlDataAdapter da = new SqlDataAdapter(command);
+
+                cn.conn.Close();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+
+        }
+        public void ThayDoi(DateTime ngaythaydoi,string noidung,string id,string tencongtac)
+        {
+            
+                DBConnect cn = new DBConnect();
+                cn.conn.Open();
+
+                String query = @"insert into  ThayDoi([NgayThayDoi]
+                                                      ,[NoiDung]
+                                                      ,[ID]
+                                                      ,[TenCongTac]) 
+                                  values(@NgayThayDoi, @NoiDung,@id,@TenCongTac)";
+                SqlCommand command = new SqlCommand(query, cn.conn);
+
+                command.Parameters.AddWithValue("@NgayThayDoi", ngaythaydoi);
+                command.Parameters.AddWithValue("@NoiDung", noidung);
+                command.Parameters.AddWithValue("@id", id);
+                command.Parameters.AddWithValue("@TenCongTac", tencongtac);
+                command.ExecuteNonQuery();
+                SqlDataAdapter da = new SqlDataAdapter(command);
+                cn.conn.Close();
+        }
+        public DataTable LoadThayDoi()
+        {
+            DBConnect cn = new DBConnect();
+            cn.conn.Open();
+            DataTable dt = new DataTable();
+            String query = @"select [NgayThayDoi],[NoiDung]
+                                                      ,[ID]
+                                                      ,[TenCongTac] 
+            from ThayDoi  ";
+            SqlCommand command = new SqlCommand(query, cn.conn);
+
+            command.ExecuteNonQuery();
+            SqlDataAdapter da = new SqlDataAdapter(command);
+            da.Fill(dt);
+            cn.conn.Close();
+            return dt;
+        }
+   
+     
     }
 }

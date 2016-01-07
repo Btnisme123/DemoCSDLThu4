@@ -44,6 +44,8 @@
             this.comboLoaiCT = new System.Windows.Forms.ComboBox();
             this.txtNoiDung = new System.Windows.Forms.TextBox();
             this.dateTimeNgayBD = new System.Windows.Forms.DateTimePicker();
+            this.btnXoa = new System.Windows.Forms.Button();
+            this.btnThayDoi = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataCongTac)).BeginInit();
             this.SuspendLayout();
             // 
@@ -60,7 +62,7 @@
             // 
             // btnNhacNho
             // 
-            this.btnNhacNho.Location = new System.Drawing.Point(624, 378);
+            this.btnNhacNho.Location = new System.Drawing.Point(772, 378);
             this.btnNhacNho.Name = "btnNhacNho";
             this.btnNhacNho.Size = new System.Drawing.Size(84, 50);
             this.btnNhacNho.TabIndex = 1;
@@ -69,7 +71,7 @@
             // 
             // btnThem
             // 
-            this.btnThem.Location = new System.Drawing.Point(115, 378);
+            this.btnThem.Location = new System.Drawing.Point(54, 378);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(84, 50);
             this.btnThem.TabIndex = 2;
@@ -79,7 +81,7 @@
             // 
             // btnCapNhat
             // 
-            this.btnCapNhat.Location = new System.Drawing.Point(373, 378);
+            this.btnCapNhat.Location = new System.Drawing.Point(218, 378);
             this.btnCapNhat.Name = "btnCapNhat";
             this.btnCapNhat.Size = new System.Drawing.Size(85, 50);
             this.btnCapNhat.TabIndex = 3;
@@ -188,11 +190,33 @@
             this.dateTimeNgayBD.Size = new System.Drawing.Size(200, 22);
             this.dateTimeNgayBD.TabIndex = 16;
             // 
+            // btnXoa
+            // 
+            this.btnXoa.Location = new System.Drawing.Point(404, 378);
+            this.btnXoa.Name = "btnXoa";
+            this.btnXoa.Size = new System.Drawing.Size(85, 50);
+            this.btnXoa.TabIndex = 17;
+            this.btnXoa.Text = "Xóa";
+            this.btnXoa.UseVisualStyleBackColor = true;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
+            // 
+            // btnThayDoi
+            // 
+            this.btnThayDoi.Location = new System.Drawing.Point(579, 378);
+            this.btnThayDoi.Name = "btnThayDoi";
+            this.btnThayDoi.Size = new System.Drawing.Size(109, 50);
+            this.btnThayDoi.TabIndex = 18;
+            this.btnThayDoi.Text = "Kiểm tra thay đổi";
+            this.btnThayDoi.UseVisualStyleBackColor = true;
+            this.btnThayDoi.Click += new System.EventHandler(this.btnThayDoi_Click);
+            // 
             // frmQuanLi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(947, 450);
+            this.Controls.Add(this.btnThayDoi);
+            this.Controls.Add(this.btnXoa);
             this.Controls.Add(this.dateTimeNgayBD);
             this.Controls.Add(this.comboLoaiCT);
             this.Controls.Add(this.txtNoiDung);
@@ -236,5 +260,7 @@
         private System.Windows.Forms.ComboBox comboLoaiCT;
         private System.Windows.Forms.TextBox txtNoiDung;
         private System.Windows.Forms.DateTimePicker dateTimeNgayBD;
+        private System.Windows.Forms.Button btnXoa;
+        private System.Windows.Forms.Button btnThayDoi;
     }
 }
