@@ -32,8 +32,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -47,6 +50,11 @@
     <Compile Include="Connection\DBConnect.cs" />
     <Compile Include="Connection\EmployeeManagement.cs" />
     <Compile Include="Object\LichCongTac.cs" />
+    <Compile Include="QuanLiCongTacDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuanLiCongTacDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="UI\FormDangNhap.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -55,6 +63,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI\FormInLich.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FormInLich.Designer.cs">
+      <DependentUpon>FormInLich.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\FormLichCongTac.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -73,6 +87,12 @@
     <Compile Include="UI\FormQuanLi.Designer.cs">
       <DependentUpon>FormQuanLi.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\FormThemCongTac.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FormThemCongTac.Designer.cs">
+      <DependentUpon>FormThemCongTac.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="UI\FormDangNhap.resx">
       <DependentUpon>FormDangNhap.cs</DependentUpon>
     </EmbeddedResource>
@@ -85,6 +105,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UI\FormInLich.resx">
+      <DependentUpon>FormInLich.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\FormLichCongTac.resx">
       <DependentUpon>FormLichCongTac.cs</DependentUpon>
     </EmbeddedResource>
@@ -94,6 +117,10 @@
     <EmbeddedResource Include="UI\FormQuanLi.resx">
       <DependentUpon>FormQuanLi.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\FormThemCongTac.resx">
+      <DependentUpon>FormThemCongTac.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Report1.rdlc" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -103,6 +130,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="QuanLiCongTacDataSet.xsc">
+      <DependentUpon>QuanLiCongTacDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="QuanLiCongTacDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QuanLiCongTacDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QuanLiCongTacDataSet.xss">
+      <DependentUpon>QuanLiCongTacDataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -95,7 +95,8 @@ namespace CSDLThu4.UI
 
         private void btnCongTac_Click(object sender, EventArgs e)
         {
-
+            frmLichCongTac lich = new frmLichCongTac();
+            lich.Show();
         }
 
     }

@@ -83,7 +83,7 @@ namespace CSDLThu4.Object
 
         }
         //Load data LichCT
-        public DataTable LoadDataLich(String ID,LichCongTac lich)
+        public DataTable LoadDataLich(String ID,List<LichCongTac> ListLich)
         {
             //select TenCongTac,NgayBatDau,NgayKetThuc,NoiDung from LichCongTac l ,
             //NhanVien nv,NhanVien_CongTac nvct
@@ -93,7 +93,8 @@ namespace CSDLThu4.Object
             DBConnect cn = new DBConnect();
             cn.conn.Open();
             DataTable dt = new DataTable();
-            String query = @"select TenCongTac,NgayBatDau,NgayKetThuc,NoiDung from LichCongTac l ,
+            String query = @"select TenCongTac,NgayBatDau,NgayKetThuc,DiaDiem,NoiDung 
+            from LichCongTac l ,NhanVien nv,NhanVien_CongTac nvct   
              where nv.MaNhanVien=nvct.MaNhanVien and nvct.MaCongTac=l.MaCongTac and  ID=@ID";
             SqlCommand command = new SqlCommand(query, cn.conn);
             command.Parameters.AddWithValue("@ID", ID);
@@ -104,7 +105,54 @@ namespace CSDLThu4.Object
             cn.conn.Close();
             //return dt;
 
+            for (int i = 0; i<dt.Rows.Count; i++)
+            {
+            LichCongTac a = new LichCongTac(dt.Rows[i][0].ToString(), DateTime.Parse(dt.Rows[i][1].ToString()),
+            DateTime.Parse(dt.Rows[i][2].ToString()), dt.Rows[i][3].ToString(), dt.Rows[i][4].ToString());
+            ListLich.Add(a);
+                
+            }
             return dt;
+        }
+        public DataTable LoadDataLich(String ID)
+        {
+            //select TenCongTac,NgayBatDau,NgayKetThuc,NoiDung from LichCongTac l ,
+            //NhanVien nv,NhanVien_CongTac nvct
+            //where nv.ID='nam' and nv.MaNhanVien=nvct.MaNhanVien and nvct.MaCongTac=l.MaCongTac
+
+            //string setthuoctinh = @"";
+            DBConnect cn = new DBConnect();
+            cn.conn.Open();
+            DataTable dt = new DataTable();
+            String query = @"select TenCongTac,NgayBatDau,NgayKetThuc,DiaDiem,NoiDung 
+            from LichCongTac l ,NhanVien nv,NhanVien_CongTac nvct   
+             where nv.MaNhanVien=nvct.MaNhanVien and nvct.MaCongTac=l.MaCongTac and  ID=@ID";
+            SqlCommand command = new SqlCommand(query, cn.conn);
+            command.Parameters.AddWithValue("@ID", ID);
+            command.ExecuteNonQuery();
+            SqlDataAdapter da = new SqlDataAdapter(command);
+            da.Fill(dt);
+            cn.conn.Close();
+            return dt;
+        }
+        public void ThemCongTac(string TenCongTac,string NgayBatDau, string NgayKetThuc,string DiaDiem,string NoiDung,string MaLoaiCongTac)
+        {
+            DBConnect cn = new DBConnect();
+            cn.conn.Open();
+            
+            String query = @"insert into LichCongTac(TenCongTac,NgayBatDau,NgayKetThuc,DiaDiem,NoiDung,MaLoaiCongTac)
+             values(@TenCongTac,@NgayBatDau,@NgayKetThuc,@DiaDiem,@NoiDung,@MaLoaiCongTac)";
+            SqlCommand command = new SqlCommand(query, cn.conn);
+            command.Parameters.AddWithValue("@TenCongTac", TenCongTac);
+            command.Parameters.AddWithValue("@NgayBatDau", NgayBatDau);
+            command.Parameters.AddWithValue("@NgayKetThuc", NgayKetThuc);
+            command.Parameters.AddWithValue("@DiaDiem", DiaDiem);
+            command.Parameters.AddWithValue("@NoiDung", NoiDung);
+            command.Parameters.AddWithValue("@MaLoaiCongTac", MaLoaiCongTac);
+            command.ExecuteNonQuery();
+            SqlDataAdapter da = new SqlDataAdapter(command);
+            
+            cn.conn.Close();
         }
     }
 }
