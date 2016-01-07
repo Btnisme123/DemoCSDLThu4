@@ -6,12 +6,14 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace CSDLThu4.Object
 {
     class EmployeeManagement:DBConnect
     {
         public static string UserID;
+        public static int MaCT;
         //check login
         public int CheckLogin(String ID, String Pass)
         {
@@ -136,6 +138,7 @@ namespace CSDLThu4.Object
             cn.conn.Close();
             return dt;
         }
+        //load du lieu lich
         public DataTable LoadDataLich()
         {
             //select TenCongTac,NgayBatDau,NgayKetThuc,NoiDung from LichCongTac l ,
@@ -213,6 +216,7 @@ namespace CSDLThu4.Object
             }
 
         }
+        //xoa cong tac
         public bool XoaCongTac(int id)
         {
             try
@@ -236,6 +240,7 @@ namespace CSDLThu4.Object
             }
 
         }
+        //insert du lieu bang thay doi
         public void ThayDoi(DateTime ngaythaydoi,string noidung,string id,string tencongtac)
         {
             
@@ -257,6 +262,7 @@ namespace CSDLThu4.Object
                 SqlDataAdapter da = new SqlDataAdapter(command);
                 cn.conn.Close();
         }
+        // load du lieu bang thay doi
         public DataTable LoadThayDoi()
         {
             DBConnect cn = new DBConnect();
@@ -274,7 +280,40 @@ namespace CSDLThu4.Object
             cn.conn.Close();
             return dt;
         }
-   
-     
+        //load du lieu nhan vien
+        public DataTable LoadNV()
+        {
+            DBConnect cn = new DBConnect();
+            cn.conn.Open();
+            DataTable dt = new DataTable();
+            String query = @"select * from NhanVien  ";
+            SqlCommand command = new SqlCommand(query, cn.conn);
+            command.ExecuteNonQuery();
+            SqlDataAdapter da = new SqlDataAdapter(command);
+            da.Fill(dt);
+            cn.conn.Close();
+            return dt;
+        }
+        // insert NV_CT
+        public bool insertNV_CT(int manhanvien,int macongtac)
+        {
+            try
+            {
+                DBConnect cn = new DBConnect();
+                cn.conn.Open();
+                String query = @"insert into  NhanVien_CongTac([MaNhanVien],[MaCongTac]) values(@MaNhanVien,@MaCongTac)  ";
+                SqlCommand command = new SqlCommand(query, cn.conn);
+                command.Parameters.AddWithValue("@MaNhanVien", manhanvien);
+                command.Parameters.AddWithValue("@MaCongTac", macongtac);
+                command.ExecuteNonQuery();
+                cn.conn.Close();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+            
+        }
     }
 }

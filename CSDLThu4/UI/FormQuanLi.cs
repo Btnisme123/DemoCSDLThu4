@@ -28,7 +28,7 @@ namespace CSDLThu4.UI
             dataCongTac.Refresh();
             dataCongTac.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataCongTac.DataSource = em.LoadDataLich();
-
+            
         }
 
         private void btnThem_Click(object sender, EventArgs e)
@@ -90,7 +90,8 @@ namespace CSDLThu4.UI
             txtTenCT.Text=dataCongTac.CurrentRow.Cells["TenCongTac"].Value.ToString();
             txtDiaDiem.Text = dataCongTac.CurrentRow.Cells["DiaDiem"].Value.ToString();
             txtNoiDung.Text = dataCongTac.CurrentRow.Cells["NoiDung"].Value.ToString();
-
+            EmployeeManagement.MaCT = Convert.ToInt32(dataCongTac.CurrentRow.Cells["MaCongTac"].Value.ToString());
+            labelSelect.Text = dataCongTac.CurrentRow.Cells["MaCongTac"].Value.ToString();
         }
 
         private void btnCapNhat_Click(object sender, EventArgs e)
@@ -144,6 +145,19 @@ namespace CSDLThu4.UI
         {
             FormThayDoi fr = new FormThayDoi();
             fr.Show();
+        }
+
+        private void btnNhacNho_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnThemNVvaoCT_Click(object sender, EventArgs e)
+        {
+            
+            FormNV nv = new FormNV();
+            nv.getMa = labelSelect.Text;
+            nv.Show();
         }
     }
 }
