@@ -25,7 +25,7 @@ namespace CSDLThu4.UI
         {
             gridViewLich.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             gridViewLich.DataSource = emloy.LoadDataLich(EmployeeManagement.UserID, list);
-            label1.Text = DateTime.Now.ToString();
+            //label1.Text = DateTime.Now.ToString();
         }
      
 

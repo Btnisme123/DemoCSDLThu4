@@ -135,24 +135,35 @@ namespace CSDLThu4.Object
             cn.conn.Close();
             return dt;
         }
-        public void ThemCongTac(string TenCongTac,string NgayBatDau, string NgayKetThuc,string DiaDiem,string NoiDung,string MaLoaiCongTac)
+        public bool ThemCongTac(string TenCongTac, DateTime NgayBatDau, DateTime NgayKetThuc, string DiaDiem, string NoiDung, int MaLoaiCongTac)
         {
-            DBConnect cn = new DBConnect();
-            cn.conn.Open();
-            
-            String query = @"insert into LichCongTac(TenCongTac,NgayBatDau,NgayKetThuc,DiaDiem,NoiDung,MaLoaiCongTac)
+            try
+            {
+                DBConnect cn = new DBConnect();
+                cn.conn.Open();
+
+                String query = @"insert into LichCongTac(TenCongTac,NgayBatDau,NgayKetThuc,DiaDiem,NoiDung,MaLoaiCongTac)
              values(@TenCongTac,@NgayBatDau,@NgayKetThuc,@DiaDiem,@NoiDung,@MaLoaiCongTac)";
-            SqlCommand command = new SqlCommand(query, cn.conn);
-            command.Parameters.AddWithValue("@TenCongTac", TenCongTac);
-            command.Parameters.AddWithValue("@NgayBatDau", NgayBatDau);
-            command.Parameters.AddWithValue("@NgayKetThuc", NgayKetThuc);
-            command.Parameters.AddWithValue("@DiaDiem", DiaDiem);
-            command.Parameters.AddWithValue("@NoiDung", NoiDung);
-            command.Parameters.AddWithValue("@MaLoaiCongTac", MaLoaiCongTac);
-            command.ExecuteNonQuery();
-            SqlDataAdapter da = new SqlDataAdapter(command);
-            
-            cn.conn.Close();
+                SqlCommand command = new SqlCommand(query, cn.conn);
+                command.Parameters.AddWithValue("@TenCongTac", TenCongTac);
+                command.Parameters.AddWithValue("@NgayBatDau", NgayBatDau);
+                command.Parameters.AddWithValue("@NgayKetThuc", NgayKetThuc);
+                command.Parameters.AddWithValue("@DiaDiem", DiaDiem);
+                command.Parameters.AddWithValue("@NoiDung", NoiDung);
+                command.Parameters.AddWithValue("@MaLoaiCongTac", MaLoaiCongTac);
+                command.ExecuteNonQuery();
+                SqlDataAdapter da = new SqlDataAdapter(command);
+
+                cn.conn.Close();
+                return true;
+            }catch(Exception ex){
+                return false;
+            }
+          
         }
+
+
+
+       
     }
 }

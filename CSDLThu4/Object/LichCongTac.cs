@@ -11,7 +11,7 @@ namespace CSDLThu4.Object
         public DateTime Ngaybatdau;
         public DateTime Ngayketthuc;
         public String DiaDiem;
-       
+        public int LoaiCT;
         public String NoiDung;
         public String TenCongTac;
 
@@ -20,10 +20,10 @@ namespace CSDLThu4.Object
         {
             Ngaybatdau = ngaybatdau;
             Ngayketthuc = ngayketthuc;
-            
             DiaDiem = diadiem;
             NoiDung = noidung;
             TenCongTac = Tencongtac;
+            LoaiCT = 1;
         }
 
 

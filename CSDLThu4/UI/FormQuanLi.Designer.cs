@@ -64,6 +64,7 @@
             this.btnThem.TabIndex = 2;
             this.btnThem.Text = "Thêm mới";
             this.btnThem.UseVisualStyleBackColor = true;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // btnBoSung
             // 
@@ -101,6 +102,7 @@
             this.Controls.Add(this.dataCongTac);
             this.Name = "frmQuanLi";
             this.Text = "FormQuanLi";
+            this.Load += new System.EventHandler(this.frmQuanLi_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataCongTac)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
