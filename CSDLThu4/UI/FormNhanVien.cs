@@ -100,5 +100,11 @@ namespace CSDLThu4.UI
             lich.Show();
         }
 
+        private void btnDoiMK_Click(object sender, EventArgs e)
+        {
+            FormMK mk = new FormMK();
+            mk.Show();
+        }
+
     }
 }

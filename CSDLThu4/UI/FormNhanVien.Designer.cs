@@ -41,6 +41,7 @@
             this.btnXacNhan = new System.Windows.Forms.Button();
             this.comboGT = new System.Windows.Forms.ComboBox();
             this.btnCongTac = new System.Windows.Forms.Button();
+            this.btnDoiMK = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnNhacNho
@@ -159,11 +160,22 @@
             this.btnCongTac.UseVisualStyleBackColor = true;
             this.btnCongTac.Click += new System.EventHandler(this.btnCongTac_Click);
             // 
+            // btnDoiMK
+            // 
+            this.btnDoiMK.Location = new System.Drawing.Point(537, 219);
+            this.btnDoiMK.Name = "btnDoiMK";
+            this.btnDoiMK.Size = new System.Drawing.Size(163, 43);
+            this.btnDoiMK.TabIndex = 16;
+            this.btnDoiMK.Text = "Đổi mật khẩu";
+            this.btnDoiMK.UseVisualStyleBackColor = true;
+            this.btnDoiMK.Click += new System.EventHandler(this.btnDoiMK_Click);
+            // 
             // frmNhanVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(789, 421);
+            this.Controls.Add(this.btnDoiMK);
             this.Controls.Add(this.btnCongTac);
             this.Controls.Add(this.comboGT);
             this.Controls.Add(this.btnXacNhan);
@@ -200,5 +212,6 @@
         private System.Windows.Forms.Button btnXacNhan;
         private System.Windows.Forms.ComboBox comboGT;
         private System.Windows.Forms.Button btnCongTac;
+        private System.Windows.Forms.Button btnDoiMK;
     }
 }

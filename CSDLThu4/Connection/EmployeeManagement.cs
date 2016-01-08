@@ -315,5 +315,51 @@ namespace CSDLThu4.Object
             }
             
         }
+        //
+         public bool ChangePass(int manhanvien,string passCu,string passMoi )
+        {
+            try
+            {
+                DBConnect cn = new DBConnect();
+                cn.conn.Open();
+                string sql = "select count(*) as MaxNumber from NhanVien where Pass=@Pass and MaNhanVien=@MaNhanVien";
+                SqlCommand cmd = new SqlCommand(sql, cn.conn);
+                cmd.Parameters.AddWithValue("@MaNhanVien", manhanvien);
+                cmd.Parameters.AddWithValue("@Pass", passCu);
+                cmd.ExecuteNonQuery();
+                int rows = Convert.ToInt32(cmd.ExecuteScalar());
+                cn.conn.Close();
+                if (rows == 1)
+                {
+                    cn.conn.Open();
+                    sql = "update  NhanVien set Pass=@PassMoi where Pass=@Pass and MaNhanVien=@MaNhanVien";
+                     cmd = new SqlCommand(sql, cn.conn);
+                    cmd.Parameters.AddWithValue("@MaNhanVien", manhanvien);
+                    cmd.Parameters.AddWithValue("@Pass", passCu);
+                    cmd.Parameters.AddWithValue("@PassMoi", passMoi);
+                    cmd.ExecuteNonQuery();
+                    cn.conn.Close();
+                    return true;
+
+                }
+                else
+                {
+                    return false;
+                }
+               
+               
+               
+               
+                
+            }
+             
+            catch (Exception ex)
+            {
+                return false;
+            }
+              
+            
+        }
+       
     }
 }

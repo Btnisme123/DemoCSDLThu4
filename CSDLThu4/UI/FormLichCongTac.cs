@@ -37,6 +37,11 @@ namespace CSDLThu4.UI
             
         }
 
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        /*
         private void comboLich_SelectedIndexChanged(object sender, EventArgs e)
         {
             ComboBox cb = (ComboBox)sender;
@@ -82,7 +87,7 @@ namespace CSDLThu4.UI
 
             }
         }
-
+    */
         
     }
 }
