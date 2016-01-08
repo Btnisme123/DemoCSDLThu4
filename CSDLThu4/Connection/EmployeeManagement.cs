@@ -363,6 +363,7 @@ namespace CSDLThu4.Object
         //LoadNV
          public DataTable LoadNV(int maCT)
          {
+             //aaa
              DBConnect cn = new DBConnect();
              cn.conn.Open();
              DataTable dt = new DataTable();
