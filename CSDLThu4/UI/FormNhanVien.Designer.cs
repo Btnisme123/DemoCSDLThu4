@@ -51,6 +51,7 @@
             this.btnNhacNho.TabIndex = 1;
             this.btnNhacNho.Text = "Nhắc nhở";
             this.btnNhacNho.UseVisualStyleBackColor = true;
+            this.btnNhacNho.Click += new System.EventHandler(this.btnNhacNho_Click);
             // 
             // label1
             // 

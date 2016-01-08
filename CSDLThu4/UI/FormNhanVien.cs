@@ -106,5 +106,11 @@ namespace CSDLThu4.UI
             mk.Show();
         }
 
+        private void btnNhacNho_Click(object sender, EventArgs e)
+        {
+            FormNNQuanLi fr = new FormNNQuanLi();
+            fr.Show();
+        }
+
     }
 }

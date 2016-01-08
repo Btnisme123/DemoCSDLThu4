@@ -20,14 +20,16 @@ namespace CSDLThu4.UI
             InitializeComponent();
         }
         public String getMa;
+        EmployeeManagement ey = new EmployeeManagement();
         private void FormNV_Load(object sender, EventArgs e)
         {
             gridViewNV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            ey.LoadNVintoCombo(comboMaQl);
         }
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            EmployeeManagement ey = new EmployeeManagement();
+            
             foreach (DataGridViewRow item in gridViewNV.Rows)
             {
                 if (bool.Parse(item.Cells[0].Value.ToString()))
@@ -49,7 +51,7 @@ namespace CSDLThu4.UI
 
         private void btnShow_Click(object sender, EventArgs e)
         {
-            EmployeeManagement ey = new EmployeeManagement();
+            
             DataTable dt = ey.LoadNV();
             foreach (DataRow d in dt.Rows)
             {
@@ -57,8 +59,11 @@ namespace CSDLThu4.UI
                 gridViewNV.Rows[n].Cells[0].Value = false;
                 gridViewNV.Rows[n].Cells[1].Value = d["MaNhanVien"].ToString();
                 gridViewNV.Rows[n].Cells[2].Value = d["HoTen"].ToString();
-                gridViewNV.Rows[n].Cells[3].Value = d["DiaChi"].ToString();
+                gridViewNV.Rows[n].Cells[3].Value = d["ID"].ToString();
                 gridViewNV.Rows[n].Cells[4].Value = d["GioiTinh"].ToString();
+                gridViewNV.Rows[n].Cells[5].Value = d["MaCapQuanLi"].ToString();
+                gridViewNV.Rows[n].Cells[6].Value = d["MaNguoiQuanLi"].ToString();
+                
             }
             //label.Text = EmployeeManagement.MaCT.ToString();
         }
@@ -69,6 +74,11 @@ namespace CSDLThu4.UI
         }
 
         private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label9_Click(object sender, EventArgs e)
         {
 
         }

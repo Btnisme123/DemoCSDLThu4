@@ -163,6 +163,8 @@ namespace CSDLThu4.UI
         private void btnHienThiNV_Click(object sender, EventArgs e)
         {
             dataNV.DataSource=em.LoadNV(Convert.ToInt32(labelSelect.Text));
+            dataNV.Update();
+            dataNV.Refresh();
         }
     }
 }

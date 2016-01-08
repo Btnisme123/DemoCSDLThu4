@@ -368,8 +368,7 @@ namespace CSDLThu4.Object
              cn.conn.Open();
              DataTable dt = new DataTable();
              String query = @"select * from NhanVien nv, LichCongTac l, NhanVien_CongTac n where 
-               nv.MaNhanVien=n.MaNhanVien and n.MaCongTac=l.MaCongTac and l.MaLoaiCongTac=@maCT
-";
+               nv.MaNhanVien=n.MaNhanVien and n.MaCongTac=l.MaCongTac and l.MaLoaiCongTac=@maCT";
              SqlCommand command = new SqlCommand(query, cn.conn);
              command.Parameters.AddWithValue("@maCT", maCT);
              command.ExecuteNonQuery();
@@ -378,6 +377,39 @@ namespace CSDLThu4.Object
              cn.conn.Close();
              return dt;
          }
-       
+        //Lay du lieu CT
+         public void LoadCTintoCombo(ComboBox combo)
+         {
+             DBConnect cn = new DBConnect();
+             cn.conn.Open();
+             String query = @"select TenCongTac from LichCongTac";
+             SqlCommand command = new SqlCommand(query, cn.conn);
+           
+             //command.ExecuteNonQuery();
+             SqlDataReader sqlReader = command.ExecuteReader();
+             while (sqlReader.Read())
+             {
+                 combo.Items.Add(sqlReader["TenCongTac"].ToString());
+             }
+             cn.conn.Close();
+            
+         }
+         //Lay du lieu NV
+         public void LoadNVintoCombo(ComboBox combo)
+         {
+             DBConnect cn = new DBConnect();
+             cn.conn.Open();
+             String query = @"select ID from NhanVien where [MaCapQuanLi]<3";
+             SqlCommand command = new SqlCommand(query, cn.conn);
+
+             //command.ExecuteNonQuery();
+             SqlDataReader sqlReader = command.ExecuteReader();
+             while (sqlReader.Read())
+             {
+                 combo.Items.Add(sqlReader["ID"].ToString());
+             }
+             cn.conn.Close();
+
+         }
     }
 }

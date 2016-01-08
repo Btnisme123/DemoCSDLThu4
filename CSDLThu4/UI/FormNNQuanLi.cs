@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CSDLThu4.Object;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,12 @@ namespace CSDLThu4.UI
         public FormNNQuanLi()
         {
             InitializeComponent();
+        }
+
+        private void FormNNQuanLi_Load(object sender, EventArgs e)
+        {
+            EmployeeManagement ey = new EmployeeManagement();
+            ey.LoadCTintoCombo(comboCT);
         }
     }
 }

@@ -28,13 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gridViewNV = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnThem = new System.Windows.Forms.Button();
             this.btnShow = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
@@ -53,6 +55,8 @@
             this.txtId = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.comboCapQL = new System.Windows.Forms.ComboBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.comboMaQl = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewNV)).BeginInit();
             this.SuspendLayout();
             // 
@@ -67,15 +71,17 @@
             this.Column2,
             this.Column3,
             this.Column4,
-            this.Column5});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gridViewNV.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Column5,
+            this.Column6,
+            this.Column7});
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gridViewNV.DefaultCellStyle = dataGridViewCellStyle2;
             this.gridViewNV.Dock = System.Windows.Forms.DockStyle.Top;
             this.gridViewNV.Location = new System.Drawing.Point(0, 0);
             this.gridViewNV.Name = "gridViewNV";
@@ -93,29 +99,41 @@
             // 
             this.Column2.HeaderText = "Mã nhân viên";
             this.Column2.Name = "Column2";
-            this.Column2.Width = 118;
+            this.Column2.Width = 108;
             // 
             // Column3
             // 
             this.Column3.HeaderText = "Họ tên";
             this.Column3.Name = "Column3";
-            this.Column3.Width = 75;
+            this.Column3.Width = 69;
             // 
             // Column4
             // 
-            this.Column4.HeaderText = "Địa chỉ";
+            this.Column4.HeaderText = "ID";
             this.Column4.Name = "Column4";
-            this.Column4.Width = 76;
+            this.Column4.Width = 46;
             // 
             // Column5
             // 
             this.Column5.HeaderText = "Giới tính";
             this.Column5.Name = "Column5";
-            this.Column5.Width = 85;
+            this.Column5.Width = 58;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Mã cấp quản lí";
+            this.Column6.Name = "Column6";
+            this.Column6.Width = 114;
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "Mã người quản lí";
+            this.Column7.Name = "Column7";
+            this.Column7.Width = 125;
             // 
             // btnThem
             // 
-            this.btnThem.Location = new System.Drawing.Point(508, 225);
+            this.btnThem.Location = new System.Drawing.Point(511, 211);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(182, 50);
             this.btnThem.TabIndex = 2;
@@ -125,7 +143,7 @@
             // 
             // btnShow
             // 
-            this.btnShow.Location = new System.Drawing.Point(103, 225);
+            this.btnShow.Location = new System.Drawing.Point(108, 211);
             this.btnShow.Name = "btnShow";
             this.btnShow.Size = new System.Drawing.Size(182, 50);
             this.btnShow.TabIndex = 3;
@@ -204,7 +222,7 @@
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(522, 298);
+            this.txtEmail.Location = new System.Drawing.Point(522, 293);
             this.txtEmail.Margin = new System.Windows.Forms.Padding(4);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(205, 22);
@@ -223,7 +241,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(419, 352);
+            this.label6.Location = new System.Drawing.Point(419, 348);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(21, 17);
             this.label6.TabIndex = 21;
@@ -274,11 +292,32 @@
             this.comboCapQL.Size = new System.Drawing.Size(121, 24);
             this.comboCapQL.TabIndex = 26;
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(62, 501);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(112, 17);
+            this.label9.TabIndex = 27;
+            this.label9.Text = "Mã người quản lí";
+            this.label9.Click += new System.EventHandler(this.label9_Click);
+            // 
+            // comboMaQl
+            // 
+            this.comboMaQl.FormattingEnabled = true;
+            this.comboMaQl.Location = new System.Drawing.Point(190, 498);
+            this.comboMaQl.Name = "comboMaQl";
+            this.comboMaQl.Size = new System.Drawing.Size(121, 24);
+            this.comboMaQl.TabIndex = 28;
+            // 
             // FormNV
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(782, 530);
+            this.ClientSize = new System.Drawing.Size(782, 565);
+            this.Controls.Add(this.comboMaQl);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.comboCapQL);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.txtPASS);
@@ -310,13 +349,8 @@
         #endregion
 
         private System.Windows.Forms.DataGridView gridViewNV;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn Column1;
         private System.Windows.Forms.Button btnThem;
         private System.Windows.Forms.Button btnShow;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
@@ -333,5 +367,14 @@
         private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox comboCapQL;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ComboBox comboMaQl;
     }
 }
