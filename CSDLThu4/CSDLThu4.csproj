@@ -87,6 +87,12 @@
     <Compile Include="UI\FormNhanVien.Designer.cs">
       <DependentUpon>FormNhanVien.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\FormNNQuanLi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FormNNQuanLi.Designer.cs">
+      <DependentUpon>FormNNQuanLi.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\FormNV.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -134,6 +140,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\FormNhanVien.resx">
       <DependentUpon>FormNhanVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FormNNQuanLi.resx">
+      <DependentUpon>FormNNQuanLi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\FormNV.resx">
       <DependentUpon>FormNV.cs</DependentUpon>

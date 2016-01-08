@@ -49,7 +49,10 @@
             this.btnThemNVvaoCT = new System.Windows.Forms.Button();
             this.labelSelect = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.btnHienThiNV = new System.Windows.Forms.Button();
+            this.dataNV = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dataCongTac)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataNV)).BeginInit();
             this.SuspendLayout();
             // 
             // dataCongTac
@@ -85,7 +88,7 @@
             // 
             // btnCapNhat
             // 
-            this.btnCapNhat.Location = new System.Drawing.Point(218, 378);
+            this.btnCapNhat.Location = new System.Drawing.Point(209, 378);
             this.btnCapNhat.Name = "btnCapNhat";
             this.btnCapNhat.Size = new System.Drawing.Size(85, 50);
             this.btnCapNhat.TabIndex = 3;
@@ -196,7 +199,7 @@
             // 
             // btnXoa
             // 
-            this.btnXoa.Location = new System.Drawing.Point(371, 378);
+            this.btnXoa.Location = new System.Drawing.Point(358, 378);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(85, 50);
             this.btnXoa.TabIndex = 17;
@@ -206,7 +209,7 @@
             // 
             // btnThayDoi
             // 
-            this.btnThayDoi.Location = new System.Drawing.Point(498, 378);
+            this.btnThayDoi.Location = new System.Drawing.Point(501, 378);
             this.btnThayDoi.Name = "btnThayDoi";
             this.btnThayDoi.Size = new System.Drawing.Size(109, 50);
             this.btnThayDoi.TabIndex = 18;
@@ -242,11 +245,31 @@
             this.label2.TabIndex = 21;
             this.label2.Text = "Hàng hiện tại :";
             // 
+            // btnHienThiNV
+            // 
+            this.btnHienThiNV.Location = new System.Drawing.Point(571, 500);
+            this.btnHienThiNV.Name = "btnHienThiNV";
+            this.btnHienThiNV.Size = new System.Drawing.Size(85, 50);
+            this.btnHienThiNV.TabIndex = 23;
+            this.btnHienThiNV.Text = "Hiển thị nhân viên";
+            this.btnHienThiNV.UseVisualStyleBackColor = true;
+            // 
+            // dataNV
+            // 
+            this.dataNV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataNV.Location = new System.Drawing.Point(161, 442);
+            this.dataNV.Name = "dataNV";
+            this.dataNV.RowTemplate.Height = 24;
+            this.dataNV.Size = new System.Drawing.Size(317, 174);
+            this.dataNV.TabIndex = 24;
+            // 
             // frmQuanLi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(947, 450);
+            this.ClientSize = new System.Drawing.Size(947, 620);
+            this.Controls.Add(this.dataNV);
+            this.Controls.Add(this.btnHienThiNV);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.labelSelect);
             this.Controls.Add(this.btnThemNVvaoCT);
@@ -272,6 +295,7 @@
             this.Text = "FormQuanLi";
             this.Load += new System.EventHandler(this.frmQuanLi_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataCongTac)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataNV)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -300,5 +324,7 @@
         private System.Windows.Forms.Button btnThemNVvaoCT;
         private System.Windows.Forms.Label labelSelect;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnHienThiNV;
+        private System.Windows.Forms.DataGridView dataNV;
     }
 }

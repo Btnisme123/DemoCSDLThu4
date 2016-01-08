@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.btnNhacNho = new System.Windows.Forms.Button();
-            this.btnThongBao = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -52,15 +51,6 @@
             this.btnNhacNho.TabIndex = 1;
             this.btnNhacNho.Text = "Nhắc nhở";
             this.btnNhacNho.UseVisualStyleBackColor = true;
-            // 
-            // btnThongBao
-            // 
-            this.btnThongBao.Location = new System.Drawing.Point(280, 297);
-            this.btnThongBao.Name = "btnThongBao";
-            this.btnThongBao.Size = new System.Drawing.Size(163, 43);
-            this.btnThongBao.TabIndex = 3;
-            this.btnThongBao.Text = "Thông báo thay đổi";
-            this.btnThongBao.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -152,7 +142,7 @@
             // 
             // btnCongTac
             // 
-            this.btnCongTac.Location = new System.Drawing.Point(537, 297);
+            this.btnCongTac.Location = new System.Drawing.Point(291, 297);
             this.btnCongTac.Name = "btnCongTac";
             this.btnCongTac.Size = new System.Drawing.Size(163, 43);
             this.btnCongTac.TabIndex = 15;
@@ -162,7 +152,7 @@
             // 
             // btnDoiMK
             // 
-            this.btnDoiMK.Location = new System.Drawing.Point(537, 219);
+            this.btnDoiMK.Location = new System.Drawing.Point(537, 297);
             this.btnDoiMK.Name = "btnDoiMK";
             this.btnDoiMK.Size = new System.Drawing.Size(163, 43);
             this.btnDoiMK.TabIndex = 16;
@@ -187,7 +177,6 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.btnThongBao);
             this.Controls.Add(this.btnNhacNho);
             this.Name = "frmNhanVien";
             this.Text = "FormNhanVien";
@@ -200,7 +189,6 @@
         #endregion
 
         private System.Windows.Forms.Button btnNhacNho;
-        private System.Windows.Forms.Button btnThongBao;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
