@@ -253,6 +253,7 @@
             this.btnHienThiNV.TabIndex = 23;
             this.btnHienThiNV.Text = "Hiển thị nhân viên";
             this.btnHienThiNV.UseVisualStyleBackColor = true;
+            this.btnHienThiNV.Click += new System.EventHandler(this.btnHienThiNV_Click);
             // 
             // dataNV
             // 

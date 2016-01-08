@@ -159,5 +159,10 @@ namespace CSDLThu4.UI
             nv.getMa = labelSelect.Text;
             nv.Show();
         }
+
+        private void btnHienThiNV_Click(object sender, EventArgs e)
+        {
+            dataNV.DataSource=em.LoadNV(Convert.ToInt32(labelSelect.Text));
+        }
     }
 }

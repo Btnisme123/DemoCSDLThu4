@@ -360,6 +360,23 @@ namespace CSDLThu4.Object
               
             
         }
+        //LoadNV
+         public DataTable LoadNV(int maCT)
+         {
+             DBConnect cn = new DBConnect();
+             cn.conn.Open();
+             DataTable dt = new DataTable();
+             String query = @"select * from NhanVien nv, LichCongTac l, NhanVien_CongTac n where 
+               nv.MaNhanVien=n.MaNhanVien and n.MaCongTac=l.MaCongTac and l.MaLoaiCongTac=@maCT
+";
+             SqlCommand command = new SqlCommand(query, cn.conn);
+             command.Parameters.AddWithValue("@maCT", maCT);
+             command.ExecuteNonQuery();
+             SqlDataAdapter da = new SqlDataAdapter(command);
+             da.Fill(dt);
+             cn.conn.Close();
+             return dt;
+         }
        
     }
 }
