@@ -196,6 +196,7 @@
             // 
             // comboGT
             // 
+            this.comboGT.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboGT.FormattingEnabled = true;
             this.comboGT.Items.AddRange(new object[] {
             "Nam ",
@@ -288,6 +289,7 @@
             // 
             // comboCapQL
             // 
+            this.comboCapQL.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboCapQL.FormattingEnabled = true;
             this.comboCapQL.Items.AddRange(new object[] {
             "Cấp 1",
@@ -331,6 +333,7 @@
             // 
             // comboMaQl
             // 
+            this.comboMaQl.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboMaQl.FormattingEnabled = true;
             this.comboMaQl.Location = new System.Drawing.Point(169, 498);
             this.comboMaQl.Name = "comboMaQl";
@@ -386,7 +389,7 @@
             this.Controls.Add(this.btnThemNVvaoCT);
             this.Controls.Add(this.gridViewNV);
             this.Name = "FormNV";
-            this.Text = "â";
+            this.Text = "Thêm Nhân Viên";
             this.Load += new System.EventHandler(this.FormNV_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridViewNV)).EndInit();
             this.ResumeLayout(false);

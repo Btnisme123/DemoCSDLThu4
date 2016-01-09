@@ -109,7 +109,7 @@
             this.Controls.Add(this.txtMKmoi);
             this.Controls.Add(this.txtMKcu);
             this.Name = "FormMK";
-            this.Text = "FormMK";
+            this.Text = "Mật Khẩu";
             this.ResumeLayout(false);
             this.PerformLayout();
 

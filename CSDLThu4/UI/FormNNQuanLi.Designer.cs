@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnGui = new System.Windows.Forms.Button();
             this.txtNoiDung = new System.Windows.Forms.RichTextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -54,6 +54,7 @@
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnPhanHoi = new System.Windows.Forms.Button();
             this.txtPH = new System.Windows.Forms.RichTextBox();
+            this.btnNhacNhoNhieuLan = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewNV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewNN)).BeginInit();
             this.SuspendLayout();
@@ -112,6 +113,7 @@
             // 
             // comboCT
             // 
+            this.comboCT.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboCT.FormattingEnabled = true;
             this.comboCT.Location = new System.Drawing.Point(248, 445);
             this.comboCT.Name = "comboCT";
@@ -132,14 +134,14 @@
             this.Column5,
             this.Column6,
             this.Column7});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gridViewNV.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gridViewNV.DefaultCellStyle = dataGridViewCellStyle1;
             this.gridViewNV.Dock = System.Windows.Forms.DockStyle.Top;
             this.gridViewNV.Location = new System.Drawing.Point(0, 0);
             this.gridViewNV.Name = "gridViewNV";
@@ -203,14 +205,14 @@
             this.dataGridViewTextBoxColumn3,
             this.dataGridViewTextBoxColumn5,
             this.dataGridViewTextBoxColumn6});
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gridViewNN.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gridViewNN.DefaultCellStyle = dataGridViewCellStyle2;
             this.gridViewNN.Location = new System.Drawing.Point(0, 488);
             this.gridViewNN.Name = "gridViewNN";
             this.gridViewNN.RowTemplate.Height = 24;
@@ -274,11 +276,22 @@
             this.txtPH.TabIndex = 13;
             this.txtPH.Text = "";
             // 
+            // btnNhacNhoNhieuLan
+            // 
+            this.btnNhacNhoNhieuLan.Location = new System.Drawing.Point(75, 741);
+            this.btnNhacNhoNhieuLan.Name = "btnNhacNhoNhieuLan";
+            this.btnNhacNhoNhieuLan.Size = new System.Drawing.Size(111, 47);
+            this.btnNhacNhoNhieuLan.TabIndex = 14;
+            this.btnNhacNhoNhieuLan.Text = "Nhắc nhiều lần";
+            this.btnNhacNhoNhieuLan.UseVisualStyleBackColor = true;
+            this.btnNhacNhoNhieuLan.Click += new System.EventHandler(this.btnNhacNhoNhieuLan_Click);
+            // 
             // FormNNQuanLi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(779, 869);
+            this.Controls.Add(this.btnNhacNhoNhieuLan);
             this.Controls.Add(this.txtPH);
             this.Controls.Add(this.btnPhanHoi);
             this.Controls.Add(this.gridViewNN);
@@ -291,7 +304,7 @@
             this.Controls.Add(this.txtNoiDung);
             this.Controls.Add(this.btnGui);
             this.Name = "FormNNQuanLi";
-            this.Text = "FormNNQuanLi";
+            this.Text = "Nhắc Nhở";
             this.Load += new System.EventHandler(this.FormNNQuanLi_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridViewNV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewNN)).EndInit();
@@ -326,5 +339,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.RichTextBox txtPH;
+        private System.Windows.Forms.Button btnNhacNhoNhieuLan;
     }
 }

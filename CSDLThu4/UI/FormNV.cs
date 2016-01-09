@@ -25,6 +25,7 @@ namespace CSDLThu4.UI
         {
             gridViewNV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             ey.LoadNVintoCombo(comboMaQl);
+            btnXoa.Visible = false;
         }
 
         private void btnThem_Click(object sender, EventArgs e)
@@ -135,13 +136,13 @@ namespace CSDLThu4.UI
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-           // ey.DeletedataNV(Convert.ToInt32(labelSelect.Text));
+           //ey.DeletedataNV(Convert.ToInt32(labelSelect.Text));
         }
 
         private void gridViewNV_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            //labelSelect.Text = gridViewNV.CurrentRow.Cells["Column2"].Value.ToString();
-            //show();
+            labelSelect.Text = gridViewNV.CurrentRow.Cells["Column2"].Value.ToString();
+           // show();
         }
         /*
         private void gridViewNV_CurrentCellDirtyStateChanged(object sender, EventArgs e)

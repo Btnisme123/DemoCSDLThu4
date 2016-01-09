@@ -73,7 +73,7 @@
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.gridViewLich);
             this.Name = "frmLichCongTac";
-            this.Text = "FormLichCongTac";
+            this.Text = "Lịch Công Tác";
             this.Load += new System.EventHandler(this.frmLichCongTac_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridViewLich)).EndInit();
             this.ResumeLayout(false);

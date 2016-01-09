@@ -115,9 +115,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(12, 252);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(63, 17);
+            this.label1.Size = new System.Drawing.Size(53, 17);
             this.label1.TabIndex = 7;
-            this.label1.Text = "Địa điểm";
+            this.label1.Text = "Quản lí";
             // 
             // label4
             // 
@@ -164,6 +164,7 @@
             // 
             // comboLoaiCT
             // 
+            this.comboLoaiCT.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboLoaiCT.FormattingEnabled = true;
             this.comboLoaiCT.Items.AddRange(new object[] {
             "Công tác mức 1",

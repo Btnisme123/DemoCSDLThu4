@@ -395,6 +395,71 @@ namespace CSDLThu4.Object
             cn.conn.Close();
             return dt;
         }
+        //Nhan vien duoi quyen
+        public DataTable LoadNVCanPH()
+        {
+            DBConnect cn = new DBConnect();
+            cn.conn.Open();
+            DataTable dt = new DataTable();
+            String query = @"select distinct nv.MaNhanVien,nv.ID,nv.MaCapQuanLi,nv.MaNguoiQuanLi,n.CapDoNhac         
+   from NhacNho nn,NhanVien nv, NhacNho_NhanVien n  
+             where nv.MaNhanVien=n.MaNhanVien and n.MaNhacNho=nn.MaNhacNho and nn.NguoiGui=@NguoiGui and n.GhiChu is null";
+            SqlCommand command = new SqlCommand(query, cn.conn);
+            command.Parameters.AddWithValue("@NguoiGui", EmployeeManagement.UserID);
+            command.ExecuteNonQuery();
+            SqlDataAdapter da = new SqlDataAdapter(command);
+            da.Fill(dt);
+            cn.conn.Close();
+            return dt;
+        }
+        //Load NV can phan hoi
+        public void UpdateNVCanPH(int manhanvien)
+        {
+            DBConnect cn = new DBConnect();
+            cn.conn.Open();
+           
+            String query = @"  update 
+        NhacNho_NhanVien  set CapDoNhac=CapDoNhac+1
+             where  MaNhanVien=@MaNhanVien";
+            SqlCommand command = new SqlCommand(query, cn.conn);
+            command.Parameters.AddWithValue("@MaNhanVien", manhanvien);
+            command.ExecuteNonQuery();
+           
+            cn.conn.Close();
+          
+        }
+        //Thong bao cap tren
+        public string ThongbaoNVCanPH(int manhanvien)
+        {
+            try
+            {
+                DBConnect cn = new DBConnect();
+                cn.conn.Open();
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = cn.conn;
+                SqlDataReader rdr = null;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "pro_insertNN";
+                cmd.Parameters.AddWithValue("@NgayNhac", DateTime.Now);
+                cmd.Parameters.AddWithValue("@TenNhacNho", "Nhac Nho Nhan Vien");
+                cmd.Parameters.AddWithValue("@NoiDung", "Nhan vien Ma so :"+manhanvien+"chua hoan thanh nhiem vu");
+                cmd.Parameters.AddWithValue("@MaCongTac", 1);
+                cmd.Parameters.AddWithValue("@NguoiGui", EmployeeManagement.UserID);
+                cmd.Parameters.Add("@MaNhacNho", SqlDbType.VarChar, 100);
+                cmd.Parameters["@MaNhacNho"].Direction = ParameterDirection.Output;
+                rdr = cmd.ExecuteReader();
+                string outputValue = cmd.Parameters["@MaNhacNho"].Value.ToString();
+                cn.conn.Close();
+                return outputValue;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Thất bại!" + ex, "Thông báo");
+                return "";
+            }
+
+        }
+        //Nhan vien can phan hoi
         public DataTable LoadNVDuoiQuyen()
         {
             DBConnect cn = new DBConnect();
@@ -409,6 +474,7 @@ namespace CSDLThu4.Object
             cn.conn.Close();
             return dt;
         }
+
         //Tham so khac
         
         public void insertNV_CT(int manhanvien, int macongtac)
@@ -529,10 +595,11 @@ namespace CSDLThu4.Object
              {
                  DBConnect cn = new DBConnect();
                  cn.conn.Open();
-                 String query = @"insert into  NhacNho_NhanVien([MaNhanVien],[MaNhacNho]) values(@MaNhanVien,@MaNhacNho)  ";
+                 String query = @"insert into  NhacNho_NhanVien([MaNhanVien],[MaNhacNho],CapDoNhac) values(@MaNhanVien,@MaNhacNho,@CapDoNhac)  ";
                  SqlCommand command = new SqlCommand(query, cn.conn);
                  command.Parameters.AddWithValue("@MaNhanVien", manhanvien);
                  command.Parameters.AddWithValue("@MaNhacNho", manhacnho);
+                 command.Parameters.AddWithValue("@CapDoNhac", 1);
                  command.ExecuteNonQuery();
                  cn.conn.Close();
              }

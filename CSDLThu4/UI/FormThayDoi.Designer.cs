@@ -63,7 +63,7 @@
             this.Controls.Add(this.btnDong);
             this.Controls.Add(this.dataCongTac);
             this.Name = "FormThayDoi";
-            this.Text = "FormThayDoi";
+            this.Text = "Thay đổi";
             this.Load += new System.EventHandler(this.FormThayDoi_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataCongTac)).EndInit();
             this.ResumeLayout(false);

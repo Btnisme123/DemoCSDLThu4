@@ -132,6 +132,7 @@
             // 
             // comboGT
             // 
+            this.comboGT.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboGT.FormattingEnabled = true;
             this.comboGT.Items.AddRange(new object[] {
             "Nam ",
@@ -180,7 +181,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnNhacNho);
             this.Name = "frmNhanVien";
-            this.Text = "FormNhanVien";
+            this.Text = "Nhân Viên";
             this.Load += new System.EventHandler(this.frmNhanVien_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -126,6 +126,12 @@ namespace CSDLThu4.UI
 
         }
 
+        private void btnNhacNhoNhieuLan_Click(object sender, EventArgs e)
+        {
+            FormCapPhanHoi fr = new FormCapPhanHoi();
+            fr.ShowDialog();
+        }
+
         
     }
 }
