@@ -10,5 +10,9 @@ namespace CSDLThu4.Connection
     public class DBConnect
     {
         public SqlConnection conn = new SqlConnection(@"Data Source=VULAN-PC\SQLEXPRESS;Initial Catalog=QuanLiCongTac;Integrated Security=True");
+      
+      
+       
     }
+
 }

@@ -40,6 +40,7 @@
             this.dataCongTac.Location = new System.Drawing.Point(0, 0);
             this.dataCongTac.Name = "dataCongTac";
             this.dataCongTac.RowTemplate.Height = 24;
+            this.dataCongTac.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataCongTac.Size = new System.Drawing.Size(750, 185);
             this.dataCongTac.TabIndex = 1;
             this.dataCongTac.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataCongTac_CellContentClick);

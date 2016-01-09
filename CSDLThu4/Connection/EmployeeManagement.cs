@@ -431,7 +431,7 @@ namespace CSDLThu4.Object
                 command.ExecuteNonQuery();
               
                 cn.conn.Close();
-                
+   
             }
             catch (Exception ex)
             {
@@ -440,7 +440,7 @@ namespace CSDLThu4.Object
            
         }
          
-        //
+        //Doi mat khau
          public bool ChangePass(int manhanvien,string passCu,string passMoi )
         {
             try
@@ -465,16 +465,11 @@ namespace CSDLThu4.Object
                     cmd.ExecuteNonQuery();
                     cn.conn.Close();
                     return true;
-
                 }
                 else
                 {
                     return false;
                 }
-               
-               
-               
-               
                 
             }
              
@@ -482,8 +477,6 @@ namespace CSDLThu4.Object
             {
                 return false;
             }
-              
-            
         }
         //LoadNV
          public DataTable LoadNV(int maCT)
@@ -507,14 +500,14 @@ namespace CSDLThu4.Object
          {
              DBConnect cn = new DBConnect();
              cn.conn.Open();
-             String query = @"select TenCongTac from LichCongTac";
+             String query = @"select MaCongTac from LichCongTac";
              SqlCommand command = new SqlCommand(query, cn.conn);
            
              //command.ExecuteNonQuery();
              SqlDataReader sqlReader = command.ExecuteReader();
              while (sqlReader.Read())
              {
-                 combo.Items.Add(sqlReader["TenCongTac"].ToString());
+                 combo.Items.Add(sqlReader["MaCongTac"].ToString());
              }
              cn.conn.Close();
             
@@ -536,5 +529,54 @@ namespace CSDLThu4.Object
              cn.conn.Close();
 
          }
+        //them du lieu bang phu NV_NN
+         public void insertNV_NN(int manhanvien,int manhacnho)
+         {
+             try
+             {
+                 DBConnect cn = new DBConnect();
+                 cn.conn.Open();
+                 String query = @"insert into  NhanVien_NhacNho([MaNhanVien],[MaNhacNho]) values(@MaNhanVien,@MaNhacNho)  ";
+                 SqlCommand command = new SqlCommand(query, cn.conn);
+                 command.Parameters.AddWithValue("@MaNhanVien", manhanvien);
+                 command.Parameters.AddWithValue("@MaCongTac", manhacnho);
+                 command.ExecuteNonQuery();
+                 cn.conn.Close();
+             }
+             catch (Exception ex)
+             {
+                 MessageBox.Show("Thất bại!", "Thông báo");
+             }
+         }
+         public string insertNhacNho(DateTime ngaynhac, string tieude, string noidung, int macongtac)
+         {
+             try
+             {
+                 DBConnect cn = new DBConnect();
+                 cn.conn.Open();
+                 SqlCommand cmd =new SqlCommand();
+                 cmd.Connection = cn.conn;
+                 SqlDataReader rdr = null;
+                 cmd.CommandType = CommandType.StoredProcedure;
+                 cmd.CommandText = "pro_insertNN";
+                 cmd.Parameters.AddWithValue("@NgayNhac", ngaynhac);
+                 cmd.Parameters.AddWithValue("@TenNhacNho", tieude);
+                 cmd.Parameters.AddWithValue("@NoiDung", noidung);
+                 cmd.Parameters.AddWithValue("@MaCongTac", macongtac);
+                 cmd.Parameters.Add("@MaNhacNho", SqlDbType.VarChar, 100);
+                 cmd.Parameters["@MaNhacNho"].Direction = ParameterDirection.Output;
+                 rdr=cmd.ExecuteReader();
+                 string outputValue = cmd.Parameters["@MaNhacNho"].Value.ToString();
+                 cn.conn.Close();
+                 return outputValue;
+             }
+             catch (Exception ex)
+             {
+                 MessageBox.Show("Thất bại!"+ex, "Thông báo");
+                 return "";
+             }
+         }
+        //
+         
     }
 }

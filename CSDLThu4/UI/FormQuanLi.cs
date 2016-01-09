@@ -144,20 +144,21 @@ namespace CSDLThu4.UI
         private void btnThayDoi_Click(object sender, EventArgs e)
         {
             FormThayDoi fr = new FormThayDoi();
-            fr.Show();
+            fr.ShowDialog();
         }
-
+        /*
         private void btnNhacNho_Click(object sender, EventArgs e)
         {
-
+            FormNNQuanLi fr = new FormNNQuanLi();
+            fr.show();
         }
-
+        */
         private void btnThemNVvaoCT_Click(object sender, EventArgs e)
         {
             
             FormNV nv = new FormNV();
             nv.getMa = labelSelect.Text;
-            nv.Show();
+            nv.ShowDialog();
         }
 
         private void btnHienThiNV_Click(object sender, EventArgs e)
@@ -166,6 +167,12 @@ namespace CSDLThu4.UI
             dataNV.Refresh();
             dataNV.DataSource=em.LoadNV(Convert.ToInt32(labelSelect.Text));
             
+        }
+
+        private void btnNN_Click(object sender, EventArgs e)
+        {
+            FormNNQuanLi fr = new FormNNQuanLi();
+            fr.ShowDialog();
         }
     }
 }

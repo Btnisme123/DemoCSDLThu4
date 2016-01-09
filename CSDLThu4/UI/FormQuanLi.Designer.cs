@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.dataCongTac = new System.Windows.Forms.DataGridView();
-            this.btnNhacNho = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
             this.btnCapNhat = new System.Windows.Forms.Button();
             this.txtTenCT = new System.Windows.Forms.TextBox();
@@ -51,6 +50,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btnHienThiNV = new System.Windows.Forms.Button();
             this.dataNV = new System.Windows.Forms.DataGridView();
+            this.btnNN = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataCongTac)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataNV)).BeginInit();
             this.SuspendLayout();
@@ -62,19 +62,10 @@
             this.dataCongTac.Location = new System.Drawing.Point(0, 0);
             this.dataCongTac.Name = "dataCongTac";
             this.dataCongTac.RowTemplate.Height = 24;
+            this.dataCongTac.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataCongTac.Size = new System.Drawing.Size(947, 182);
             this.dataCongTac.TabIndex = 0;
             this.dataCongTac.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataCongTac_CellClick);
-            // 
-            // btnNhacNho
-            // 
-            this.btnNhacNho.Location = new System.Drawing.Point(821, 378);
-            this.btnNhacNho.Name = "btnNhacNho";
-            this.btnNhacNho.Size = new System.Drawing.Size(84, 50);
-            this.btnNhacNho.TabIndex = 1;
-            this.btnNhacNho.Text = "Nhắc nhở";
-            this.btnNhacNho.UseVisualStyleBackColor = true;
-            this.btnNhacNho.Click += new System.EventHandler(this.btnNhacNho_Click);
             // 
             // btnThem
             // 
@@ -264,11 +255,22 @@
             this.dataNV.Size = new System.Drawing.Size(317, 174);
             this.dataNV.TabIndex = 24;
             // 
+            // btnNN
+            // 
+            this.btnNN.Location = new System.Drawing.Point(822, 378);
+            this.btnNN.Name = "btnNN";
+            this.btnNN.Size = new System.Drawing.Size(96, 50);
+            this.btnNN.TabIndex = 25;
+            this.btnNN.Text = "Nhắc nhở";
+            this.btnNN.UseVisualStyleBackColor = true;
+            this.btnNN.Click += new System.EventHandler(this.btnNN_Click);
+            // 
             // frmQuanLi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(947, 620);
+            this.Controls.Add(this.btnNN);
             this.Controls.Add(this.dataNV);
             this.Controls.Add(this.btnHienThiNV);
             this.Controls.Add(this.label2);
@@ -290,7 +292,6 @@
             this.Controls.Add(this.txtTenCT);
             this.Controls.Add(this.btnCapNhat);
             this.Controls.Add(this.btnThem);
-            this.Controls.Add(this.btnNhacNho);
             this.Controls.Add(this.dataCongTac);
             this.Name = "frmQuanLi";
             this.Text = "FormQuanLi";
@@ -305,7 +306,6 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataCongTac;
-        private System.Windows.Forms.Button btnNhacNho;
         private System.Windows.Forms.Button btnThem;
         private System.Windows.Forms.Button btnCapNhat;
         private System.Windows.Forms.TextBox txtTenCT;
@@ -327,5 +327,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnHienThiNV;
         private System.Windows.Forms.DataGridView dataNV;
+        private System.Windows.Forms.Button btnNN;
     }
 }

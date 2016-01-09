@@ -97,19 +97,19 @@ namespace CSDLThu4.UI
         private void btnCongTac_Click(object sender, EventArgs e)
         {
             frmLichCongTac lich = new frmLichCongTac();
-            lich.Show();
+            lich.ShowDialog(); 
         }
 
         private void btnDoiMK_Click(object sender, EventArgs e)
         {
             FormMK mk = new FormMK();
-            mk.Show();
+            mk.ShowDialog();
         }
 
         private void btnNhacNho_Click(object sender, EventArgs e)
         {
             FormNNQuanLi fr = new FormNNQuanLi();
-            fr.Show();
+            fr.ShowDialog();
         }
 
     }
