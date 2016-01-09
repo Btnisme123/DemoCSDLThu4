@@ -22,7 +22,7 @@ namespace CSDLThu4
         
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
-
+            //aa
             DBConnect cn = new DBConnect();
             string txtID = txtId.Text;
             string txtPass = txtPASS.Text;
