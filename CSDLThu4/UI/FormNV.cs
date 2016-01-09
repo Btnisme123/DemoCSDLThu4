@@ -29,27 +29,43 @@ namespace CSDLThu4.UI
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            
+            //int n=0, count=0;
+           
             foreach (DataGridViewRow item in gridViewNV.Rows)
             {
                 if (bool.Parse(item.Cells[0].Value.ToString()))
                 {
                     // EmployeeManagement.MaCT
-                    if (ey.insertNV_CT(Int32.Parse(item.Cells[1].Value.ToString()), Int32.Parse(getMa)))
+                    ey.insertNV_CT(Int32.Parse(item.Cells[1].Value.ToString()), Int32.Parse(getMa));
+        
+                }
+               
+            }/*
+            foreach (DataGridViewRow item in gridViewNV.Rows)
+            {
+                if (bool.Parse(item.Cells[0].Value.ToString()))
+                {
+                    count++;
+                }
+
+            }
+             if (n==count)
                     {
-                        MessageBox.Show("Sửa  thành công !", "Thông báo");
+                        MessageBox.Show("Thêm vào thành công !", "Thông báo");
                     }
                     else
                     {
                         MessageBox.Show("Thất bại!", "Thông báo");
                     }
-                        
-                }
-               
-            }
+                 labelTest1.Text = n.ToString();
+             labelTest2.Text = count.ToString();
+              */
+
         }
         public void show()
         {
+            gridViewNV.Rows.Clear();
+            
             DataTable dt = ey.LoadNV();
             foreach (DataRow d in dt.Rows)
             {
@@ -63,6 +79,7 @@ namespace CSDLThu4.UI
                 gridViewNV.Rows[n].Cells[6].Value = d["MaNguoiQuanLi"].ToString();
 
             }
+            gridViewNV.Refresh();
         }
         private void btnShow_Click(object sender, EventArgs e)
         {
@@ -130,7 +147,39 @@ namespace CSDLThu4.UI
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-
+           // ey.DeletedataNV(Convert.ToInt32(labelSelect.Text));
         }
+
+        private void gridViewNV_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //labelSelect.Text = gridViewNV.CurrentRow.Cells["Column2"].Value.ToString();
+            //show();
+        }
+        /*
+        private void gridViewNV_CurrentCellDirtyStateChanged(object sender, EventArgs e)
+        {
+            if (gridViewNV.IsCurrentCellDirty)
+            {
+                gridViewNV.CommitEdit(DataGridViewDataErrorContexts.Commit);
+            }
+        }
+        private void gridViewNV_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            int num=0;
+            bool isChecked = Convert.ToBoolean(gridViewNV.Rows[gridViewNV.CurrentCell.RowIndex].Cells[0].Value.ToString());
+
+            if (isChecked)
+            {
+                num += 1;
+            }
+            else
+            {
+                num -= 1;
+            }
+
+            labelTest1.Text = "Selected Items: " + num;
+        }
+         */
+       
     }
 }

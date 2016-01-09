@@ -86,12 +86,13 @@ namespace CSDLThu4.Object
         }
         public void DeletedataNV(int MaNV)
         {
-
+            try
+            {
             //string setthuoctinh = @"";
             DBConnect cn = new DBConnect();
             cn.conn.Open();
             //DataTable dt = new DataTable();
-            String query = @"delete from NhanVien  where MaNV=@MaNV";
+            String query = @"delete from NhanVien  where MaNhanVien=@MaNV";
             SqlCommand command = new SqlCommand(query, cn.conn);
             command.Parameters.AddWithValue("@MaNV", MaNV); 
             command.ExecuteNonQuery();
@@ -99,6 +100,12 @@ namespace CSDLThu4.Object
             // da.Fill(dt);
             cn.conn.Close();
             //return dt;
+              MessageBox.Show("Xóa thành công", "Thông báo");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Xảy ra lỗi"+ex,"Thông báo");
+            }
 
 
         }
@@ -387,6 +394,7 @@ namespace CSDLThu4.Object
             return dt;
         }
         // insert NV_CT
+        /*
         public bool insertNV_CT(int manhanvien,int macongtac)
         {
             try
@@ -407,6 +415,31 @@ namespace CSDLThu4.Object
             }
             
         }
+         */
+        //Tham so khac
+        
+        public void insertNV_CT(int manhanvien, int macongtac)
+        {
+            try
+            {
+                DBConnect cn = new DBConnect();
+                cn.conn.Open();
+                String query = @"insert into  NhanVien_CongTac([MaNhanVien],[MaCongTac]) values(@MaNhanVien,@MaCongTac)  ";
+                SqlCommand command = new SqlCommand(query, cn.conn);
+                command.Parameters.AddWithValue("@MaNhanVien", manhanvien);
+                command.Parameters.AddWithValue("@MaCongTac", macongtac);
+                command.ExecuteNonQuery();
+              
+                cn.conn.Close();
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Thất bại!", "Thông báo");
+            }
+           
+        }
+         
         //
          public bool ChangePass(int manhanvien,string passCu,string passMoi )
         {
@@ -460,7 +493,7 @@ namespace CSDLThu4.Object
              cn.conn.Open();
              DataTable dt = new DataTable();
              String query = @"select * from NhanVien nv, LichCongTac l, NhanVien_CongTac n where 
-               nv.MaNhanVien=n.MaNhanVien and n.MaCongTac=l.MaCongTac and l.MaLoaiCongTac=@maCT";
+               nv.MaNhanVien=n.MaNhanVien and n.MaCongTac=l.MaCongTac and l.MaCongTac=@maCT";
              SqlCommand command = new SqlCommand(query, cn.conn);
              command.Parameters.AddWithValue("@maCT", maCT);
              command.ExecuteNonQuery();

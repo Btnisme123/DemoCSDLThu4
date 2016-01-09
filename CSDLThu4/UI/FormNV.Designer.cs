@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gridViewNV = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -59,6 +59,8 @@
             this.btnXoa = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.comboMaQl = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.labelSelect = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewNV)).BeginInit();
             this.SuspendLayout();
             // 
@@ -76,20 +78,21 @@
             this.Column5,
             this.Column6,
             this.Column7});
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gridViewNV.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gridViewNV.DefaultCellStyle = dataGridViewCellStyle2;
             this.gridViewNV.Dock = System.Windows.Forms.DockStyle.Top;
             this.gridViewNV.Location = new System.Drawing.Point(0, 0);
             this.gridViewNV.Name = "gridViewNV";
             this.gridViewNV.RowTemplate.Height = 24;
             this.gridViewNV.Size = new System.Drawing.Size(782, 205);
             this.gridViewNV.TabIndex = 1;
+            this.gridViewNV.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridViewNV_CellClick);
             // 
             // Column1
             // 
@@ -135,9 +138,9 @@
             // 
             // btnThemNVvaoCT
             // 
-            this.btnThemNVvaoCT.Location = new System.Drawing.Point(511, 211);
+            this.btnThemNVvaoCT.Location = new System.Drawing.Point(369, 211);
             this.btnThemNVvaoCT.Name = "btnThemNVvaoCT";
-            this.btnThemNVvaoCT.Size = new System.Drawing.Size(182, 50);
+            this.btnThemNVvaoCT.Size = new System.Drawing.Size(150, 50);
             this.btnThemNVvaoCT.TabIndex = 2;
             this.btnThemNVvaoCT.Text = "Thêm nhân viên vào công việc";
             this.btnThemNVvaoCT.UseVisualStyleBackColor = true;
@@ -145,9 +148,9 @@
             // 
             // btnShow
             // 
-            this.btnShow.Location = new System.Drawing.Point(108, 211);
+            this.btnShow.Location = new System.Drawing.Point(105, 211);
             this.btnShow.Name = "btnShow";
-            this.btnShow.Size = new System.Drawing.Size(182, 50);
+            this.btnShow.Size = new System.Drawing.Size(137, 50);
             this.btnShow.TabIndex = 3;
             this.btnShow.Text = "Show";
             this.btnShow.UseVisualStyleBackColor = true;
@@ -333,11 +336,31 @@
             this.comboMaQl.Size = new System.Drawing.Size(121, 24);
             this.comboMaQl.TabIndex = 28;
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(643, 244);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(100, 17);
+            this.label10.TabIndex = 32;
+            this.label10.Text = "Hàng hiện tại :";
+            // 
+            // labelSelect
+            // 
+            this.labelSelect.AutoSize = true;
+            this.labelSelect.Location = new System.Drawing.Point(754, 244);
+            this.labelSelect.Name = "labelSelect";
+            this.labelSelect.Size = new System.Drawing.Size(16, 17);
+            this.labelSelect.TabIndex = 31;
+            this.labelSelect.Text = "1";
+            // 
             // FormNV
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(782, 565);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.labelSelect);
             this.Controls.Add(this.btnXoa);
             this.Controls.Add(this.btnThemNV);
             this.Controls.Add(this.comboMaQl);
@@ -402,5 +425,7 @@
         private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox comboMaQl;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label labelSelect;
     }
 }
