@@ -30,43 +30,31 @@ namespace CSDLThu4.UI
         private void btnThem_Click(object sender, EventArgs e)
         {
             //int n=0, count=0;
-           
-            foreach (DataGridViewRow item in gridViewNV.Rows)
-            {
-                if (bool.Parse(item.Cells[0].Value.ToString()))
-                {
-                    // EmployeeManagement.MaCT
-                    ey.insertNV_CT(Int32.Parse(item.Cells[1].Value.ToString()), Int32.Parse(getMa));
-        
-                }
-               //aaa
-            }/*
-            foreach (DataGridViewRow item in gridViewNV.Rows)
-            {
-                if (bool.Parse(item.Cells[0].Value.ToString()))
-                {
-                    count++;
-                }
+           DialogResult dialogResult = MessageBox.Show("Hãy xác nhận là bạn muốn sửa", "Thông báo", MessageBoxButtons.YesNo);
+           if (dialogResult == DialogResult.Yes)
+           {
+               foreach (DataGridViewRow item in gridViewNV.Rows)
+               {
+                   if (bool.Parse(item.Cells[0].Value.ToString()))
+                   {
+                       // EmployeeManagement.MaCT
+                       ey.insertNV_CT(Int32.Parse(item.Cells[1].Value.ToString()), Int32.Parse(getMa));
 
-            }
-             if (n==count)
-                    {
-                        MessageBox.Show("Thêm vào thành công !", "Thông báo");
-                    }
-                    else
-                    {
-                        MessageBox.Show("Thất bại!", "Thông báo");
-                    }
-                 labelTest1.Text = n.ToString();
-             labelTest2.Text = count.ToString();
-              */
+                   }
 
+               }
+           }
+           else
+           {
+
+           }
+            
         }
         public void show()
         {
             gridViewNV.Rows.Clear();
-            
-            DataTable dt = ey.LoadNV();
+
+            DataTable dt = ey.LoadNVDuoiQuyen();
             foreach (DataRow d in dt.Rows)
             {
                 int n = gridViewNV.Rows.Add();

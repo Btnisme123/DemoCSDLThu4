@@ -395,7 +395,20 @@ namespace CSDLThu4.Object
             cn.conn.Close();
             return dt;
         }
-       
+        public DataTable LoadNVDuoiQuyen()
+        {
+            DBConnect cn = new DBConnect();
+            cn.conn.Open();
+            DataTable dt = new DataTable();
+            String query = @"select * from NhanVien where MaNguoiQuanLi=@MaNguoiQuanLi";
+            SqlCommand command = new SqlCommand(query, cn.conn);
+            command.Parameters.AddWithValue("@MaNguoiQuanLi", EmployeeManagement.MaNV);
+            command.ExecuteNonQuery();
+            SqlDataAdapter da = new SqlDataAdapter(command);
+            da.Fill(dt);
+            cn.conn.Close();
+            return dt;
+        }
         //Tham so khac
         
         public void insertNV_CT(int manhanvien, int macongtac)
@@ -586,13 +599,13 @@ namespace CSDLThu4.Object
              DBConnect cn = new DBConnect();
              cn.conn.Open();
              DataTable dt = new DataTable();
-             String query = @"update NhacNho_NhanVien set GhiChu=@GhiChu
+             String query = @"update NhacNho_NhanVien set GhiChu=@GhiChu, CapDoNhac=@CapDoNhac
              where MaNhacNho=@MaNhacNho and MaNhanVien=@MaNhanVien ";
              SqlCommand command = new SqlCommand(query, cn.conn);
              command.Parameters.AddWithValue("@MaNhacNho", manhacnho);
              command.Parameters.AddWithValue("@MaNhanVien", EmployeeManagement.MaNV);
              command.Parameters.AddWithValue("@GhiChu", GhiChu);
-          
+             command.Parameters.AddWithValue("@CapDoNhac", 0);
              command.ExecuteNonQuery();
              SqlDataAdapter da = new SqlDataAdapter(command);
              da.Fill(dt);

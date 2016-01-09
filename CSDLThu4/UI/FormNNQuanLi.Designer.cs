@@ -54,7 +54,6 @@
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnPhanHoi = new System.Windows.Forms.Button();
             this.txtPH = new System.Windows.Forms.RichTextBox();
-            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewNV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewNN)).BeginInit();
             this.SuspendLayout();
@@ -259,7 +258,7 @@
             // 
             // btnPhanHoi
             // 
-            this.btnPhanHoi.Location = new System.Drawing.Point(201, 741);
+            this.btnPhanHoi.Location = new System.Drawing.Point(295, 741);
             this.btnPhanHoi.Name = "btnPhanHoi";
             this.btnPhanHoi.Size = new System.Drawing.Size(111, 47);
             this.btnPhanHoi.TabIndex = 12;
@@ -269,27 +268,17 @@
             // 
             // txtPH
             // 
-            this.txtPH.Location = new System.Drawing.Point(372, 712);
+            this.txtPH.Location = new System.Drawing.Point(466, 712);
             this.txtPH.Name = "txtPH";
             this.txtPH.Size = new System.Drawing.Size(226, 145);
             this.txtPH.TabIndex = 13;
             this.txtPH.Text = "";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(65, 771);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(64, 17);
-            this.label4.TabIndex = 14;
-            this.label4.Text = "Công tác";
             // 
             // FormNNQuanLi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(779, 869);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.txtPH);
             this.Controls.Add(this.btnPhanHoi);
             this.Controls.Add(this.gridViewNN);
@@ -337,6 +326,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.RichTextBox txtPH;
-        private System.Windows.Forms.Label label4;
     }
 }

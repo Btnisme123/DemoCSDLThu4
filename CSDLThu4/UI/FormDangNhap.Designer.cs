@@ -36,14 +36,15 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnDangNhap
             // 
-            this.btnDangNhap.Location = new System.Drawing.Point(197, 338);
+            this.btnDangNhap.Location = new System.Drawing.Point(406, 294);
             this.btnDangNhap.Name = "btnDangNhap";
-            this.btnDangNhap.Size = new System.Drawing.Size(137, 55);
+            this.btnDangNhap.Size = new System.Drawing.Size(112, 41);
             this.btnDangNhap.TabIndex = 0;
             this.btnDangNhap.Text = "Đăng Nhập";
             this.btnDangNhap.UseVisualStyleBackColor = true;
@@ -51,9 +52,9 @@
             // 
             // btnThoat
             // 
-            this.btnThoat.Location = new System.Drawing.Point(536, 338);
+            this.btnThoat.Location = new System.Drawing.Point(660, 294);
             this.btnThoat.Name = "btnThoat";
-            this.btnThoat.Size = new System.Drawing.Size(137, 55);
+            this.btnThoat.Size = new System.Drawing.Size(112, 41);
             this.btnThoat.TabIndex = 1;
             this.btnThoat.Text = "Thoát";
             this.btnThoat.UseVisualStyleBackColor = true;
@@ -61,14 +62,14 @@
             // 
             // txtId
             // 
-            this.txtId.Location = new System.Drawing.Point(511, 98);
+            this.txtId.Location = new System.Drawing.Point(505, 117);
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(180, 22);
             this.txtId.TabIndex = 2;
             // 
             // txtPASS
             // 
-            this.txtPASS.Location = new System.Drawing.Point(511, 192);
+            this.txtPASS.Location = new System.Drawing.Point(505, 175);
             this.txtPASS.Name = "txtPASS";
             this.txtPASS.PasswordChar = '*';
             this.txtPASS.Size = new System.Drawing.Size(180, 22);
@@ -77,7 +78,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(337, 101);
+            this.label1.Location = new System.Drawing.Point(425, 122);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(21, 17);
             this.label1.TabIndex = 4;
@@ -86,7 +87,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(337, 195);
+            this.label2.Location = new System.Drawing.Point(403, 178);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(69, 17);
             this.label2.TabIndex = 5;
@@ -96,17 +97,28 @@
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
-            this.pictureBox1.Location = new System.Drawing.Point(83, 75);
+            this.pictureBox1.Location = new System.Drawing.Point(31, 107);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(193, 205);
+            this.pictureBox1.Size = new System.Drawing.Size(265, 243);
             this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(118, 9);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(690, 55);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Phần mềm quản lí lịch công tác";
             // 
             // frmDangNhap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(914, 472);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -132,6 +144,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label3;
 
     }
 }

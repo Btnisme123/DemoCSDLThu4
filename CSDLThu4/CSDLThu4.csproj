@@ -56,6 +56,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>QuanLiCongTacDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="UI\FormCapPhanHoi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FormCapPhanHoi.Designer.cs">
+      <DependentUpon>FormCapPhanHoi.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\FormDangNhap.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -118,6 +124,9 @@
     <Compile Include="UI\FormThemCongTac.Designer.cs">
       <DependentUpon>FormThemCongTac.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UI\FormCapPhanHoi.resx">
+      <DependentUpon>FormCapPhanHoi.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\FormDangNhap.resx">
       <DependentUpon>FormDangNhap.cs</DependentUpon>
     </EmbeddedResource>

@@ -94,7 +94,7 @@ namespace CSDLThu4.UI
             if (gridViewNN.CurrentRow.Cells["dataGridViewTextBoxColumn1"].Value.ToString()!=null)
             {
                 MaNN = Convert.ToInt32(gridViewNN.CurrentRow.Cells["dataGridViewTextBoxColumn1"].Value.ToString());
-                label4.Text = EmployeeManagement.MaNV.ToString() + "   " + gridViewNN.CurrentRow.Cells["dataGridViewTextBoxColumn1"].Value.ToString();
+                //label4.Text = EmployeeManagement.MaNV.ToString() + "   " + gridViewNN.CurrentRow.Cells["dataGridViewTextBoxColumn1"].Value.ToString();
             }
             else
             {
