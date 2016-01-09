@@ -39,7 +39,7 @@ namespace CSDLThu4.UI
                     ey.insertNV_CT(Int32.Parse(item.Cells[1].Value.ToString()), Int32.Parse(getMa));
         
                 }
-               //aa
+               //aaa
             }/*
             foreach (DataGridViewRow item in gridViewNV.Rows)
             {
