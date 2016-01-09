@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gridViewNV = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -37,7 +37,7 @@
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnThem = new System.Windows.Forms.Button();
+            this.btnThemNVvaoCT = new System.Windows.Forms.Button();
             this.btnShow = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -55,6 +55,8 @@
             this.txtId = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.comboCapQL = new System.Windows.Forms.ComboBox();
+            this.btnThemNV = new System.Windows.Forms.Button();
+            this.btnXoa = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.comboMaQl = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewNV)).BeginInit();
@@ -74,14 +76,14 @@
             this.Column5,
             this.Column6,
             this.Column7});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gridViewNV.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gridViewNV.DefaultCellStyle = dataGridViewCellStyle1;
             this.gridViewNV.Dock = System.Windows.Forms.DockStyle.Top;
             this.gridViewNV.Location = new System.Drawing.Point(0, 0);
             this.gridViewNV.Name = "gridViewNV";
@@ -131,15 +133,15 @@
             this.Column7.Name = "Column7";
             this.Column7.Width = 125;
             // 
-            // btnThem
+            // btnThemNVvaoCT
             // 
-            this.btnThem.Location = new System.Drawing.Point(511, 211);
-            this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(182, 50);
-            this.btnThem.TabIndex = 2;
-            this.btnThem.Text = "Thêm nhân viên vào công việc";
-            this.btnThem.UseVisualStyleBackColor = true;
-            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
+            this.btnThemNVvaoCT.Location = new System.Drawing.Point(511, 211);
+            this.btnThemNVvaoCT.Name = "btnThemNVvaoCT";
+            this.btnThemNVvaoCT.Size = new System.Drawing.Size(182, 50);
+            this.btnThemNVvaoCT.TabIndex = 2;
+            this.btnThemNVvaoCT.Text = "Thêm nhân viên vào công việc";
+            this.btnThemNVvaoCT.UseVisualStyleBackColor = true;
+            this.btnThemNVvaoCT.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // btnShow
             // 
@@ -292,10 +294,30 @@
             this.comboCapQL.Size = new System.Drawing.Size(121, 24);
             this.comboCapQL.TabIndex = 26;
             // 
+            // btnThemNV
+            // 
+            this.btnThemNV.Location = new System.Drawing.Point(410, 515);
+            this.btnThemNV.Name = "btnThemNV";
+            this.btnThemNV.Size = new System.Drawing.Size(109, 38);
+            this.btnThemNV.TabIndex = 29;
+            this.btnThemNV.Text = "Thêm";
+            this.btnThemNV.UseVisualStyleBackColor = true;
+            this.btnThemNV.Click += new System.EventHandler(this.btnThemNV_Click);
+            // 
+            // btnXoa
+            // 
+            this.btnXoa.Location = new System.Drawing.Point(574, 515);
+            this.btnXoa.Name = "btnXoa";
+            this.btnXoa.Size = new System.Drawing.Size(109, 38);
+            this.btnXoa.TabIndex = 30;
+            this.btnXoa.Text = "Xoá";
+            this.btnXoa.UseVisualStyleBackColor = true;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
+            // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(62, 501);
+            this.label9.Location = new System.Drawing.Point(50, 501);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(112, 17);
@@ -306,7 +328,7 @@
             // comboMaQl
             // 
             this.comboMaQl.FormattingEnabled = true;
-            this.comboMaQl.Location = new System.Drawing.Point(190, 498);
+            this.comboMaQl.Location = new System.Drawing.Point(169, 498);
             this.comboMaQl.Name = "comboMaQl";
             this.comboMaQl.Size = new System.Drawing.Size(121, 24);
             this.comboMaQl.TabIndex = 28;
@@ -316,6 +338,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(782, 565);
+            this.Controls.Add(this.btnXoa);
+            this.Controls.Add(this.btnThemNV);
             this.Controls.Add(this.comboMaQl);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.comboCapQL);
@@ -335,7 +359,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnShow);
-            this.Controls.Add(this.btnThem);
+            this.Controls.Add(this.btnThemNVvaoCT);
             this.Controls.Add(this.gridViewNV);
             this.Name = "FormNV";
             this.Text = "â";
@@ -349,7 +373,7 @@
         #endregion
 
         private System.Windows.Forms.DataGridView gridViewNV;
-        private System.Windows.Forms.Button btnThem;
+        private System.Windows.Forms.Button btnThemNVvaoCT;
         private System.Windows.Forms.Button btnShow;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
@@ -374,6 +398,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.Button btnThemNV;
+        private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox comboMaQl;
     }

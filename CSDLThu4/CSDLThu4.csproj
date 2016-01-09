@@ -50,6 +50,7 @@
     <Compile Include="Connection\DBConnect.cs" />
     <Compile Include="Connection\EmployeeManagement.cs" />
     <Compile Include="Object\LichCongTac.cs" />
+    <Compile Include="Object\MaQuanLi.cs" />
     <Compile Include="QuanLiCongTacDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

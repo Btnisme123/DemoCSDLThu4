@@ -84,6 +84,98 @@ namespace CSDLThu4.Object
 
 
         }
+        public void DeletedataNV(int MaNV)
+        {
+
+            //string setthuoctinh = @"";
+            DBConnect cn = new DBConnect();
+            cn.conn.Open();
+            //DataTable dt = new DataTable();
+            String query = @"delete from NhanVien  where MaNV=@MaNV";
+            SqlCommand command = new SqlCommand(query, cn.conn);
+            command.Parameters.AddWithValue("@MaNV", MaNV); 
+            command.ExecuteNonQuery();
+            // SqlDataAdapter da = new SqlDataAdapter(command);
+            // da.Fill(dt);
+            cn.conn.Close();
+            //return dt;
+
+
+        }
+        //insert data NV
+        public void InsertdataNV(String ID,String Pass, String Hoten, String SDT, String DC, String GT,String email,int maQL,int maNQL)
+        {
+            try
+            {
+                 //string setthuoctinh = @"";
+            DBConnect cn = new DBConnect();
+            cn.conn.Open();
+            //DataTable dt = new DataTable();
+            String query = @"insert into NhanVien([HoTen]
+                                          ,[SDT]
+                                          ,[DiaChi]
+                                          ,[GioiTinh]
+                                          ,[Email]
+                                          ,[MaNguoiQuanLi]
+                                          ,[MaCapQuanLi]
+                                          ,[ID]
+                                           ,[Pass]) values (@HoTen
+                                              ,@SDT
+                                              ,@DiaChi
+                                              ,@GioiTinh
+                                              ,@Email
+                                              ,@MaNguoiQuanLi
+                                              ,@MaCapQuanLi
+                                              ,@ID
+                                              ,@Pass) ";
+            SqlCommand command = new SqlCommand(query, cn.conn);
+            command.Parameters.AddWithValue("@ID", ID);
+            command.Parameters.AddWithValue("@Hoten", Hoten);
+            command.Parameters.AddWithValue("@SDT", SDT);
+            command.Parameters.AddWithValue("@DiaChi", DC);
+            command.Parameters.AddWithValue("@GioiTinh", GT);
+            command.Parameters.AddWithValue("@Email", email);
+            command.Parameters.AddWithValue("@MaCapQuanLi", maQL);
+            command.Parameters.AddWithValue("@MaNguoiQuanLi", maNQL);
+            command.Parameters.AddWithValue("@Pass", Pass);
+            command.ExecuteNonQuery();
+            // SqlDataAdapter da = new SqlDataAdapter(command);
+            // da.Fill(dt);
+            cn.conn.Close();
+            //return dt;
+            MessageBox.Show("Thêm thành công", "Thông báo");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Xảy ra lỗi"+ex,"Thông báo");
+            }
+           
+
+        }
+        public void PassData(List<MaQuanLi> list)
+        {
+            //string setthuoctinh = @"";
+            DBConnect cn = new DBConnect();
+            cn.conn.Open();
+            DataTable dt = new DataTable();
+            String query = "select ID,MaNhanVien from NhanVien ";
+            // String query1 = "select ID,Pass from NhanVien ";
+            SqlCommand command = new SqlCommand(query, cn.conn);
+            command.ExecuteNonQuery();
+            SqlDataAdapter da = new SqlDataAdapter(command);
+            da.Fill(dt);
+          for (int i = 0; i < dt.Rows.Count; i++)
+             {
+                 MaQuanLi a = new MaQuanLi(dt.Rows[i]["ID"].ToString(), Convert.ToInt32(dt.Rows[i]["MaNhanVien"].ToString()));
+                 list.Add(a);
+             }  
+   
+
+            cn.conn.Close();
+           
+                
+            
+        }
         //Load data LichCT
         public DataTable LoadDataLich(String ID,List<LichCongTac> ListLich)
         {
@@ -399,14 +491,14 @@ namespace CSDLThu4.Object
          {
              DBConnect cn = new DBConnect();
              cn.conn.Open();
-             String query = @"select ID from NhanVien where [MaCapQuanLi]<3";
+             String query = @"select MaNhanVien from NhanVien where [MaCapQuanLi]<3";
              SqlCommand command = new SqlCommand(query, cn.conn);
 
              //command.ExecuteNonQuery();
              SqlDataReader sqlReader = command.ExecuteReader();
              while (sqlReader.Read())
              {
-                 combo.Items.Add(sqlReader["ID"].ToString());
+                 combo.Items.Add(sqlReader["MaNhanVien"].ToString());
              }
              cn.conn.Close();
 

@@ -48,10 +48,8 @@ namespace CSDLThu4.UI
                
             }
         }
-
-        private void btnShow_Click(object sender, EventArgs e)
+        public void show()
         {
-            
             DataTable dt = ey.LoadNV();
             foreach (DataRow d in dt.Rows)
             {
@@ -63,8 +61,13 @@ namespace CSDLThu4.UI
                 gridViewNV.Rows[n].Cells[4].Value = d["GioiTinh"].ToString();
                 gridViewNV.Rows[n].Cells[5].Value = d["MaCapQuanLi"].ToString();
                 gridViewNV.Rows[n].Cells[6].Value = d["MaNguoiQuanLi"].ToString();
-                
+
             }
+        }
+        private void btnShow_Click(object sender, EventArgs e)
+        {
+            show();
+          
             //label.Text = EmployeeManagement.MaCT.ToString();
         }
 
@@ -79,6 +82,53 @@ namespace CSDLThu4.UI
         }
 
         private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnThemNV_Click(object sender, EventArgs e)
+        {/*
+           
+            */
+           
+            List<MaQuanLi> listNQL = new List<MaQuanLi>();
+            ey.PassData(listNQL);
+            string getMaQL, getMaNQL;
+            int MaQL=0, MaNQL=0;
+
+            getMaQL= comboMaQl.Text.ToString();
+           getMaNQL= comboCapQL.Text.ToString();
+            /*
+           for (int i = 0; i < listNQL.Count; i++)
+           {
+               if (listNQL[i].tenQL.CompareTo(getMaNQL) == 0)
+               {
+                   MaNQL =listNQL[i].maQL;
+               }
+           }
+           */
+            
+             switch(getMaQL){
+                       case "Cấp 1":
+                     MaQL = 1;
+                           break;
+                       case "Cấp 2":
+                           MaQL = 2;
+                           break;
+                      case "Cấp 3":
+                           MaQL = 3;
+                          break;
+
+             }
+         
+             ey.InsertdataNV(txtId.Text.ToString(), txtPASS.Text.ToString(),
+                       txtHoTen.Text.ToString(), txtSDT.Text.ToString(),
+                          txtDiaChi.Text.ToString(), comboGT.Text.ToString(), txtEmail.Text.ToString(),
+                          Int32.Parse(comboMaQl.Text), MaNQL);
+            show();
+        }
+
+        private void btnXoa_Click(object sender, EventArgs e)
         {
 
         }
