@@ -24,8 +24,10 @@ namespace CSDLThu4.UI
         private void FormNNQuanLi_Load(object sender, EventArgs e)
         {
             gridViewNV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            gridViewNN.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             ey.LoadCTintoCombo(comboCT);
             showDuLieuNV();
+            showDuLieuNN();
         }
         public void showDuLieuNV()
         {
@@ -45,12 +47,62 @@ namespace CSDLThu4.UI
 
             }
             gridViewNV.Refresh();
+            
         }
+        public void showDuLieuNN()
+        {
+            gridViewNN.Rows.Clear();
 
+            DataTable dt = ey.LoaddataNN(EmployeeManagement.UserID);
+            foreach (DataRow d in dt.Rows)
+            {
+                int n = gridViewNN.Rows.Add();
+                gridViewNN.Rows[n].Cells[0].Value = d["MaNhacNho"].ToString();
+                gridViewNN.Rows[n].Cells[1].Value = d["NgayNhac"].ToString();
+                gridViewNN.Rows[n].Cells[2].Value = d["TenNhacNho"].ToString();
+                gridViewNN.Rows[n].Cells[3].Value = d["NoiDung"].ToString();
+                gridViewNN.Rows[n].Cells[4].Value = d["MaCongTac"].ToString();
+                gridViewNN.Rows[n].Cells[5].Value = d["NguoiGui"].ToString();
+
+            }
+            gridViewNN.Refresh();
+           // labelTest.Text = EmployeeManagement.UserID;
+        }
         private void btnGui_Click(object sender, EventArgs e)
         {
-            getMaNN = ey.insertNhacNho(localDate, txtTieuDe.Text, txtNoiDung.Text, Convert.ToInt32(comboCT.Text));
-            MaNN = Convert.ToInt32(getMaNN);
+            try
+            {
+                getMaNN = ey.insertNhacNho(localDate, txtTieuDe.Text, txtNoiDung.Text, Convert.ToInt32(comboCT.Text));
+                MaNN = Convert.ToInt32(getMaNN);
+                foreach (DataGridViewRow item in gridViewNV.Rows)
+                {
+                    if (bool.Parse(item.Cells[0].Value.ToString()))
+                    {
+
+                        ey.insertNV_NN(Int32.Parse(item.Cells[1].Value.ToString()), MaNN);
+
+                    }
+
+                }
+            }catch(Exception ex){
+                MessageBox.Show("Dữ liệu bị lỗi , hãy nhập lại","Thông báo");
+            }
+           
+        }
+
+        private void btnPhanHoi_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gridViewNN_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+              int MaNN = Convert.ToInt32(gridViewNN.CurrentRow.Cells["MaNhacNho"].Value.ToString());
+        }
+
+        private void gridViewNN_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
 
         

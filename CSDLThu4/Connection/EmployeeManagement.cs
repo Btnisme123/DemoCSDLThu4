@@ -14,6 +14,7 @@ namespace CSDLThu4.Object
     {
         public static string UserID;
         public static int MaCT;
+        public static int MaNV;
         //check login
         public int CheckLogin(String ID, String Pass)
         {
@@ -21,7 +22,7 @@ namespace CSDLThu4.Object
             DBConnect cn = new DBConnect();
             cn.conn.Open();
             DataTable dt = new DataTable();
-            String query = "select ID,Pass,MaCapQuanLi from NhanVien where ID=@ID and Pass=@Pass";
+            String query = "select ID,Pass,MaCapQuanLi,MaNhanVien from NhanVien where ID=@ID and Pass=@Pass";
             // String query1 = "select ID,Pass from NhanVien ";
             SqlCommand command = new SqlCommand(query, cn.conn);
             command.Parameters.AddWithValue("@ID", ID);
@@ -38,6 +39,7 @@ namespace CSDLThu4.Object
             {
 
                 UserID = dt.Rows[0][1].ToString();
+                MaNV=Convert.ToInt32(dt.Rows[0][3].ToString());
                 return Int32.Parse(dt.Rows[0][2].ToString());
             }
         }
@@ -393,29 +395,7 @@ namespace CSDLThu4.Object
             cn.conn.Close();
             return dt;
         }
-        // insert NV_CT
-        /*
-        public bool insertNV_CT(int manhanvien,int macongtac)
-        {
-            try
-            {
-                DBConnect cn = new DBConnect();
-                cn.conn.Open();
-                String query = @"insert into  NhanVien_CongTac([MaNhanVien],[MaCongTac]) values(@MaNhanVien,@MaCongTac)  ";
-                SqlCommand command = new SqlCommand(query, cn.conn);
-                command.Parameters.AddWithValue("@MaNhanVien", manhanvien);
-                command.Parameters.AddWithValue("@MaCongTac", macongtac);
-                command.ExecuteNonQuery();
-                cn.conn.Close();
-                return true;
-            }
-            catch (Exception ex)
-            {
-                return false;
-            }
-            
-        }
-         */
+       
         //Tham so khac
         
         public void insertNV_CT(int manhanvien, int macongtac)
@@ -536,16 +516,16 @@ namespace CSDLThu4.Object
              {
                  DBConnect cn = new DBConnect();
                  cn.conn.Open();
-                 String query = @"insert into  NhanVien_NhacNho([MaNhanVien],[MaNhacNho]) values(@MaNhanVien,@MaNhacNho)  ";
+                 String query = @"insert into  NhacNho_NhanVien([MaNhanVien],[MaNhacNho]) values(@MaNhanVien,@MaNhacNho)  ";
                  SqlCommand command = new SqlCommand(query, cn.conn);
                  command.Parameters.AddWithValue("@MaNhanVien", manhanvien);
-                 command.Parameters.AddWithValue("@MaCongTac", manhacnho);
+                 command.Parameters.AddWithValue("@MaNhacNho", manhacnho);
                  command.ExecuteNonQuery();
                  cn.conn.Close();
              }
              catch (Exception ex)
              {
-                 MessageBox.Show("Thất bại!", "Thông báo");
+                 MessageBox.Show("Thất bại!"+ex, "Thông báo");
              }
          }
          public string insertNhacNho(DateTime ngaynhac, string tieude, string noidung, int macongtac)
@@ -577,6 +557,26 @@ namespace CSDLThu4.Object
              }
          }
         //
+         public DataTable LoaddataNN(String ID)
+         {
+
+             //string setthuoctinh = @"";
+             DBConnect cn = new DBConnect();
+             cn.conn.Open();
+             DataTable dt = new DataTable();
+             String query = @"select nn.MaNhacNho,NgayNhac,TenNhacNho ,NoiDung,MaCongTac,NguoiGui 
+             from NhacNho nn,NhanVien nv, NhacNho_NhanVien n  
+             where nv.MaNhanVien=n.MaNhanVien and n.MaNhacNho=nn.MaNhacNho and nv.ID=@ID";
+             SqlCommand command = new SqlCommand(query, cn.conn);
+             command.Parameters.AddWithValue("@ID", ID);
+             command.ExecuteNonQuery();
+             SqlDataAdapter da = new SqlDataAdapter(command);
+             da.Fill(dt);
+             cn.conn.Close();
+             return dt;
+
+
+         }
          
     }
 }
