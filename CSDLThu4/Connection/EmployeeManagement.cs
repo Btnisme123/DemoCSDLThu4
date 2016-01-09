@@ -543,6 +543,7 @@ namespace CSDLThu4.Object
                  cmd.Parameters.AddWithValue("@TenNhacNho", tieude);
                  cmd.Parameters.AddWithValue("@NoiDung", noidung);
                  cmd.Parameters.AddWithValue("@MaCongTac", macongtac);
+                 cmd.Parameters.AddWithValue("@NguoiGui", EmployeeManagement.UserID);
                  cmd.Parameters.Add("@MaNhacNho", SqlDbType.VarChar, 100);
                  cmd.Parameters["@MaNhacNho"].Direction = ParameterDirection.Output;
                  rdr=cmd.ExecuteReader();
@@ -566,7 +567,7 @@ namespace CSDLThu4.Object
              DataTable dt = new DataTable();
              String query = @"select nn.MaNhacNho,NgayNhac,TenNhacNho ,NoiDung,MaCongTac,NguoiGui 
              from NhacNho nn,NhanVien nv, NhacNho_NhanVien n  
-             where nv.MaNhanVien=n.MaNhanVien and n.MaNhacNho=nn.MaNhacNho and nv.ID=@ID";
+             where nv.MaNhanVien=n.MaNhanVien and n.MaNhacNho=nn.MaNhacNho and nv.ID=@ID and n.GhiChu is null";
              SqlCommand command = new SqlCommand(query, cn.conn);
              command.Parameters.AddWithValue("@ID", ID);
              command.ExecuteNonQuery();
@@ -577,6 +578,35 @@ namespace CSDLThu4.Object
 
 
          }
-         
+         public void GuiPhanHoi(int manhacnho ,string GhiChu)
+         {
+             try
+             {
+                 //string setthuoctinh = @"";
+             DBConnect cn = new DBConnect();
+             cn.conn.Open();
+             DataTable dt = new DataTable();
+             String query = @"update NhacNho_NhanVien set GhiChu=@GhiChu
+             where MaNhacNho=@MaNhacNho and MaNhanVien=@MaNhanVien ";
+             SqlCommand command = new SqlCommand(query, cn.conn);
+             command.Parameters.AddWithValue("@MaNhacNho", manhacnho);
+             command.Parameters.AddWithValue("@MaNhanVien", EmployeeManagement.MaNV);
+             command.Parameters.AddWithValue("@GhiChu", GhiChu);
+          
+             command.ExecuteNonQuery();
+             SqlDataAdapter da = new SqlDataAdapter(command);
+             da.Fill(dt);
+             cn.conn.Close();
+             MessageBox.Show("Phản hồi thành công" , "Thông báo");
+             }
+             catch(Exception ex){
+                 MessageBox.Show("Thất bại!" + ex, "Thông báo");
+                 
+             }
+             
+             
+
+
+         }
     }
 }

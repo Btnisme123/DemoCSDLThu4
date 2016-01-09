@@ -19,7 +19,7 @@ namespace CSDLThu4.UI
         }
         EmployeeManagement ey = new EmployeeManagement();
         DateTime localDate = DateTime.Now;
-        int MaNN;
+        int MaNN=0;
         string getMaNN;
         private void FormNNQuanLi_Load(object sender, EventArgs e)
         {
@@ -89,16 +89,37 @@ namespace CSDLThu4.UI
             }
            
         }
-
-        private void btnPhanHoi_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void gridViewNN_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-              int MaNN = Convert.ToInt32(gridViewNN.CurrentRow.Cells["MaNhacNho"].Value.ToString());
+            if (gridViewNN.CurrentRow.Cells["dataGridViewTextBoxColumn1"].Value.ToString()!=null)
+            {
+                MaNN = Convert.ToInt32(gridViewNN.CurrentRow.Cells["dataGridViewTextBoxColumn1"].Value.ToString());
+                label4.Text = EmployeeManagement.MaNV.ToString() + "   " + gridViewNN.CurrentRow.Cells["dataGridViewTextBoxColumn1"].Value.ToString();
+            }
+            else
+            {
+                MessageBox.Show("Chưa click vào h", "Thông báo");
+            }
+           
+
+
         }
+
+        private void btnPhanHoi_Click(object sender, EventArgs e)
+        { if(txtPH.Text.CompareTo("")==0){
+                MessageBox.Show("Bạn chưa nhập nội dung phản hồi","Thông báo");
+            }
+            else
+            {
+                ey.GuiPhanHoi(MaNN,txtPH.Text);
+               showDuLieuNN();
+                //label4.Text = EmployeeManagement.MaNV.ToString() + "   " + gridViewNN.CurrentRow.Cells["dataGridViewTextBoxColumn1"].Value.ToString();
+                //gridViewNN.Rows.Clear();
+            }
+            
+        }
+
+      
 
         private void gridViewNN_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
